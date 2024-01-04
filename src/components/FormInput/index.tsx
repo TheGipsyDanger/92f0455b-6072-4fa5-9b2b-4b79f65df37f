@@ -14,6 +14,7 @@ export const FormInput = ({
   trigger,
   name,
   errors,
+  autoFocus = false,
   ...rest
 }: IFormInput.IView) => {
   return (
@@ -22,9 +23,10 @@ export const FormInput = ({
       <S.Container
         borderColor={errors?.[name]?.message ? 'red' : 'transparent'}
       >
-        {prepend}
+        {prepend && <Div ml={3}>{prepend}</Div>}
         <S.Content flex={1}>
           <Input
+            autoFocus={autoFocus}
             placeholder={placeholder}
             value={value}
             onBlur={onBlur}
@@ -35,7 +37,7 @@ export const FormInput = ({
             }}
           />
         </S.Content>
-        {append}
+        {append && <Div mr={3}>{append}</Div>}
       </S.Container>
       <Text mt={1} color="red">
         {errors?.[name]?.message || ''}

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import {Div, Text} from '~/components/Atomics';
 import S from '~/components/Atomics/Input/Input.styles';
 import {IInput} from '~/components/Atomics/Input/Input.types';
 
