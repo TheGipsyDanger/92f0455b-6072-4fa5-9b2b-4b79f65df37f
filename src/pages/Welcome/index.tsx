@@ -5,7 +5,7 @@ import {useWelcome} from '~/pages/Welcome/Welcome.model';
 import {Controller} from 'react-hook-form';
 
 export const Welcome = (_props: IWelcome.IView) => {
-  const {control, trigger, errors, isValid, onSubmit, handleSubmit} =
+  const {control, trigger, errors, isValid, onSubmit, handleSubmit, isLoading} =
     useWelcome();
   return (
     <Screen flex={1} testID={`Welcome`}>
@@ -39,7 +39,7 @@ export const Welcome = (_props: IWelcome.IView) => {
             onPress={handleSubmit(onSubmit)}
             variant={isValid ? 'primary' : 'disable'}
             label="Continuar"
-            isLoading={false}
+            isLoading={isLoading}
           />
         </Div>
       </Div>

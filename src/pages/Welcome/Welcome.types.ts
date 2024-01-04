@@ -15,5 +15,6 @@ export namespace IWelcome {
     errors: IFormErros<IWelcomeForm<string>>;
     onSubmit: (data: IWelcomeForm<string>) => void;
     isValid: boolean;
+    isLoading: boolean;
   }
 }
