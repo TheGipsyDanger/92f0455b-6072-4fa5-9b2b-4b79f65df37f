@@ -2,10 +2,13 @@ import {IWelcome} from '~/pages/Welcome/Welcome.types';
 import {yupResolver} from '@hookform/resolvers/yup';
 import {welcomeSchema} from '~/utils/forms';
 import {useForm} from 'react-hook-form';
-import {IWelcomeForm, navigate} from '~/utils';
+import {IWelcomeForm, navigate, useAppDispatch, useAppSelector} from '~/utils';
 import {AppRoutes} from '~/routes/routeConfig';
+import {welcomeActions} from '~/redux/actions';
 
 export const useWelcome = (): IWelcome.IModel => {
+  const dispatch = useAppDispatch();
+  const isLoading = useAppSelector(state => state.Welcome.isLoading);
   const {
     control,
     trigger,
@@ -16,9 +19,7 @@ export const useWelcome = (): IWelcome.IModel => {
   });
 
   const onSubmit = (params: IWelcomeForm<string>) => {
-    setTimeout(() => {
-      navigate(AppRoutes.Main);
-    }, 1000);
+    dispatch(welcomeActions.request(params));
   };
 
   return {
@@ -28,5 +29,6 @@ export const useWelcome = (): IWelcome.IModel => {
     errors,
     trigger,
     isValid,
+    isLoading,
   };
 };
