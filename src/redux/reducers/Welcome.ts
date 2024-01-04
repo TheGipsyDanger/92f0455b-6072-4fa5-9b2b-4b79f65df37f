@@ -1,11 +1,6 @@
 import {createSlice} from '@reduxjs/toolkit';
 import {IUser} from '~/utils';
 
-export interface MySliceState {
-  data: string;
-  loading: boolean;
-}
-
 interface IWelcomeState {
   user: IUser;
   isLoading: boolean;

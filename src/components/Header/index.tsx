@@ -5,7 +5,9 @@ import {useHeader} from './Header.model';
 import S from './Header.styles';
 
 export const Header = (props: IHeader.IView) => {
-  const {top, action} = useHeader();
+  const {top, action, type} = useHeader();
+
+  const isAll = type === 'all';
   return (
     <Div testID={`Header`}>
       <Div height={top}></Div>
@@ -13,10 +15,16 @@ export const Header = (props: IHeader.IView) => {
         <S.Title>{`Header`}</S.Title>
       </Div>
       <Div height={55} flexDirection="row" justifyContent="space-between">
-        <S.Action onPress={action}>
+        <S.Action
+          borderColor={isAll ? 'black' : 'transparent'}
+          onPress={() => action('all')}
+        >
           <S.Label>{`Todos`}</S.Label>
         </S.Action>
-        <S.Action onPress={action}>
+        <S.Action
+          borderColor={!isAll ? 'black' : 'transparent'}
+          onPress={() => action('open')}
+        >
           <S.Label>{`Abertas`}</S.Label>
         </S.Action>
       </Div>
