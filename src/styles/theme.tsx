@@ -51,8 +51,15 @@ export const theme = {
     'grey-clean-300': '#3F3F3F',
     'black-clean': '#111111',
   },
-  raddi: {},
-  shadows: {},
+  raddi: {
+    light: 4,
+    medium: 8,
+    big: 16,
+    circle: 100,
+  },
+  shadows: {
+    input: '0px 0px 8px rgba(0, 0, 0, 0.15)',
+  },
 };
 
 export type IFont = typeof theme.fonts;
