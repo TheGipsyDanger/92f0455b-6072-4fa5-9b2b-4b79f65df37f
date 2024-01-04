@@ -26,19 +26,23 @@ export namespace IInput {
       FontStyleProps,
       SpaceProps,
       TypographyProps {
-        testID?: string;
-        font?: IFont;
-        size?: IFontSizes;
-        forwardRef: React.MutableRefObject<TextInput | undefined>;
-        onChange: any;
-        handleValue: any;
-        handleChange: any;
-        disabled: boolean;
-        editable: boolean;
-        mask: string;
-        type: string;
-        value: string;
-      }
+    testID?: string;
+    forwardRef: React.MutableRefObject<TextInput | undefined>;
+    onChange: any;
+    handleValue: any;
+    handleChange: any;
+    onChangeText: any;
+    disabled: boolean;
+    editable: boolean;
+    autoFocus: boolean;
+    onBlur: any;
+    placeholder?: string;
+    mask: string;
+    font?: keyof IFont;
+    size?: keyof IFontSizes;
+    type: string;
+    value: string;
+  }
   export interface IModelProps {}
   export interface IModel {}
 }
