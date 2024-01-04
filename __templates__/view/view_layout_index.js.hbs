@@ -1,0 +1,14 @@
+import * as React from 'react';
+
+import { Screen, Div } from '~/components';
+
+import { I{{ pascalCase name }}Layout } from '~/pages/{{ pascalCase name }}/data'
+import C from './styles';
+
+export const {{pascalCase name}} = ({ data }: I{{ pascalCase name }}Layout) => (
+  <Screen>
+    <Div flex={1} center testID={`{{pascalCase name}}`}>
+      <C.Text>{`{{pascalCase name}}`}</C.Text>
+    </Div>
+  </Screen>
+)

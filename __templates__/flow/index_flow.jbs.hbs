@@ -1,0 +1,16 @@
+import * as React from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
+
+import { routes } from "./navigator";
+
+const {{ pascalCase name }}Stack = createStackNavigator();
+
+export default function {{ pascalCase name }}Routes() {
+  return (
+    <{{ pascalCase name }}Stack.Navigator>
+      {routes.map((view) => (
+        <{{ pascalCase name }}Stack.Screen {...view} />
+      ))}
+    </{{ pascalCase name }}Stack.Navigator>
+  )
+}

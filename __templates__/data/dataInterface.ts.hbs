@@ -1,0 +1,14 @@
+import {IBaseResponse} from '~/utils/interfaces/customTypes'
+import { I{{ pascalCase name }}Request } from '~/data/models'
+
+export interface I{{ pascalCase name }} {
+  send(params: I{{ pascalCase name }}.Params): Promise<I{{ pascalCase name }}.Response>
+}
+
+export namespace I{{ pascalCase name }} {
+  export type Params = {}
+
+  export type Response = IBaseResponse & {
+    data: I{{ pascalCase name }}Request
+  }
+}

@@ -1,0 +1,25 @@
+import {HttpClient, HttpStatusCode, API_URL} from '~/utils';
+import { I{{ pascalCase name }} } from '~/data/dataInterfaces';
+import { I{{ pascalCase name }}Request } from '~/data/models';
+
+export class {{ pascalCase name }} implements I{{ pascalCase name }} {
+  constructor(private readonly httpClient: HttpClient<I{{ pascalCase name }}Request>) {}
+
+  async send(params: I{{ pascalCase name }}.Params): Promise<I{{ pascalCase name }}.Response> {
+    const httpResponse = await this.httpClient.request({
+      url: `${API_URL}`,
+      method: 'get',
+    });
+
+    switch (httpResponse.statusCode) {
+      case HttpStatusCode.ok:
+        return {
+          status: 'Success',
+          message: '',
+          data: httpResponse?.data,
+      };
+      default:
+        throw Error();
+      }
+    }
+}
