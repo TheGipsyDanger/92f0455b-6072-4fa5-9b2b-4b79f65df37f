@@ -6,7 +6,7 @@ import {
   FieldValues,
 } from 'react-hook-form';
 
-import {IWelcomeForm} from '../formSchema';
+import {IWelcomeForm, ICreateTaskForm} from '../formSchema';
 
 import * as yup from 'yup';
 
@@ -23,8 +23,13 @@ export type ISchema<
   T2 extends yup.Maybe<yup.AnyObject>
 > = yup.ObjectSchema<T1, yup.AnyObject, T2, ''>;
 
-export type IFormInputNameAccepeted = keyof IWelcomeForm<string>;
+export type IFormInputNameAccepeted =
+  | keyof IWelcomeForm<string>
+  | keyof ICreateTaskForm<string>;
 
-export type IFormErrosAccepeted = IFormErros<IWelcomeForm<string>>;
+export type IFormErrosAccepeted = IFormErros<IWelcomeForm<string>> &
+  IFormErros<ICreateTaskForm<string>>;
 
-export type ITriggerFormInput = ITrigger<IWelcomeForm<string>>;
+export type ITriggerFormInput =
+  | ITrigger<IWelcomeForm<string>>
+  | ITrigger<ICreateTaskForm<string>>;
