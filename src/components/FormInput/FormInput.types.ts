@@ -17,6 +17,7 @@ export namespace IFormInput {
     onChange: (...event: any[]) => void;
     value: string;
     placeholder: string;
+    autoFocus?: boolean;
     label?: JSX.Element;
     prepend?: JSX.Element;
     append?: JSX.Element;

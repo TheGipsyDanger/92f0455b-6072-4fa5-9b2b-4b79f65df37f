@@ -12,4 +12,4 @@ const exec = (): ISchema<IWelcomeForm<string>, IWelcomeForm<any>> => {
   });
 };
 
-export const loginSchema = exec();
+export const welcomeSchema = exec();

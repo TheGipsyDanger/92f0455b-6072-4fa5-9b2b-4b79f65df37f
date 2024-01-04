@@ -5,7 +5,6 @@ import {theme} from '~/styles/theme';
 export default {
   Container: styled(Div).attrs({
     height: 55,
-    px: 3,
     borderWidth: 1,
   })`
     flex-direction: row;
