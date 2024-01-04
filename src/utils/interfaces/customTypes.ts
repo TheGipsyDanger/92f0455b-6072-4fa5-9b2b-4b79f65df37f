@@ -54,7 +54,7 @@ export interface ITextSystem
     withChildren {
   textTransform?: string;
   textDecoration?: string;
-  font?: IFont;
+  font?: keyof IFont;
   size?: keyof IFontSizes;
   color?: ResponsiveValue<keyof IColors>;
   testID?: string;

@@ -2,7 +2,7 @@ import styled from 'styled-components/native';
 import {css} from 'styled-components';
 import {Text as TextBase} from 'react-native';
 import {color, space, border, typography} from 'styled-system';
-import {theme, IFont, IFontSizes} from '~/styles/theme';
+import {theme, IFont, IFontSizes, IColors} from '~/styles/theme';
 
 export default {
   Text: styled(TextBase)`
@@ -16,6 +16,8 @@ export default {
       css`
         text-transform: ${textTransform};
       `}
+
+    color: ${({color}: {color: keyof IColors}) => theme.colors[color]};
 
     ${({textDecoration}) =>
       textDecoration &&

@@ -5,7 +5,7 @@ import S from '~/components/Atomics/Text/Text.styles';
 
 export const Text = ({
   color = 'black',
-  font = Platform.OS === 'ios' ? 'Avenir' : 'Roboto',
+  font = 'regular',
   size = 'normal',
   ...props
 }: IText.IView) => <S.Text {...props} font={font} color={color} size={size} />;
