@@ -4,7 +4,7 @@ import {IRequestPermissions} from '~/pages/RequestPermissions/RequestPermissions
 import {useRequestPermissions} from '~/pages/RequestPermissions/RequestPermissions.model';
 
 export const RequestPermissions = (props: IRequestPermissions.IView) => {
-  const {goToMain} = useRequestPermissions();
+  const {goToMain, requestPermission} = useRequestPermissions();
   return (
     <Screen flex={1} testID={`Welcome`}>
       <ScreenContent mt={4}>
@@ -30,7 +30,7 @@ export const RequestPermissions = (props: IRequestPermissions.IView) => {
               isLoading={false}
               label="Permitir"
               variant="primary"
-              onPress={() => alert('renan')}
+              onPress={requestPermission}
             />
             <Button.Default
               isLoading={false}

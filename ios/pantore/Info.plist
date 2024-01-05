@@ -48,6 +48,10 @@
         </dict>
       </dict>
     </dict>
+    <key>NSPhotoLibraryAddUsageDescription</key>
+    <string>O $(PRODUCT_NAME) precisa salvar arquivos.</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>O $(PRODUCT_NAME) precisa de acesso a suas fotos.</string>
     <key>UILaunchStoryboardName</key>
     <string>SplashScreen</string>
     <key>UIRequiredDeviceCapabilities</key>

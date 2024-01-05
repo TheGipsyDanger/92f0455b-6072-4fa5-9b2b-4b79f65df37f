@@ -25,6 +25,16 @@
     },
     "android": {
       "package": "com.thegipsydanger.pantore"
-    }
+    },
+    "plugins": [
+      [
+        "expo-media-library",
+        {
+          "photosPermission": "O $(PRODUCT_NAME) precisa de acesso a suas fotos.",
+          "savePhotosPermission": "O $(PRODUCT_NAME) precisa salvar arquivos.",
+          "isAccessMediaLocationEnabled": true
+        }
+      ]
+    ]
   }
 }
