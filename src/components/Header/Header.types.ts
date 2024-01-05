@@ -6,5 +6,6 @@ export namespace IHeader {
     top: number;
     type: IFilterType;
     action: (type: IFilterType) => void;
+    goBack: () => void;
   }
 }

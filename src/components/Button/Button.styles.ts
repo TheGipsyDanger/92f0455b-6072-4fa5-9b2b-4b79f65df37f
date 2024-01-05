@@ -16,6 +16,11 @@ export default {
         link: {
           backgroundColor: 'transparent',
         },
+        outline: {
+          backgroundColor: 'transparent',
+          borderWidth: 1,
+          borderColor: theme.colors.primary,
+        },
       },
     })
   ),
@@ -34,6 +39,11 @@ export default {
         },
         link: {
           color: theme.colors['white'],
+          fontFamily: theme.fonts.bold,
+          fontSize: theme.fontSizes.xbig,
+        },
+        outline: {
+          color: theme.colors['primary-clean'],
           fontFamily: theme.fonts.bold,
           fontSize: theme.fontSizes.xbig,
         },

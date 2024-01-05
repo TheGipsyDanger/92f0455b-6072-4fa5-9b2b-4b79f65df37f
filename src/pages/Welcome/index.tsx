@@ -1,5 +1,13 @@
 import * as React from 'react';
-import {Div, FormInput, Text, Screen, Spacing, Button} from '~/components';
+import {
+  Div,
+  FormInput,
+  Text,
+  Screen,
+  Spacing,
+  Button,
+  ScreenContent,
+} from '~/components';
 import {IWelcome} from '~/pages/Welcome/Welcome.types';
 import {useWelcome} from '~/pages/Welcome/Welcome.model';
 import {Controller} from 'react-hook-form';
@@ -9,7 +17,7 @@ export const Welcome = (_props: IWelcome.IView) => {
     useWelcome();
   return (
     <Screen flex={1} testID={`Welcome`}>
-      <Div mt={4} px={4} flex={1} justifyContent="space-between">
+      <ScreenContent mt={4}>
         <Div>
           <Spacing space={2}>
             <Div mb={4}>
@@ -34,15 +42,14 @@ export const Welcome = (_props: IWelcome.IView) => {
             />
           </Spacing>
         </Div>
-        <Div mb={4}>
-          <Button
-            onPress={handleSubmit(onSubmit)}
-            variant={isValid ? 'primary' : 'disable'}
-            label="Continuar"
-            isLoading={isLoading}
-          />
-        </Div>
-      </Div>
+        <Button.Default
+          mb={4}
+          onPress={handleSubmit(onSubmit)}
+          variant={isValid ? 'primary' : 'disable'}
+          label="Continuar"
+          isLoading={isLoading}
+        />
+      </ScreenContent>
     </Screen>
   );
 };

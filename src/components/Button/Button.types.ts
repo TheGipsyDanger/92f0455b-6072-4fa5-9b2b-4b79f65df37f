@@ -1,6 +1,6 @@
 import {IWrappedSystem} from '~/utils';
 
-type IButtonVariants = 'primary' | 'disable' | 'link';
+type IButtonVariants = 'primary' | 'disable' | 'link' | 'outline';
 
 export namespace IButton {
   export interface IView extends IWrappedSystem {

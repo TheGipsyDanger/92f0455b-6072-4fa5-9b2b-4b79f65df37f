@@ -5,4 +5,6 @@ export interface IWelcomeForm<T> {
 export interface ICreateTaskForm<T> {
   title: T;
   description: T;
+  status: T;
+  file: T;
 }

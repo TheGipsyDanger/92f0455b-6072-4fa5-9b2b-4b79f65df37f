@@ -1,7 +1,7 @@
 import {IHeader} from '~/components/Header/Header.types';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {useDispatch} from 'react-redux';
-import {IFilterType, useAppSelector} from '~/utils';
+import {IFilterType, goBack, useAppSelector} from '~/utils';
 import {changeFilter} from '~/redux/actions';
 
 export const useHeader = (): IHeader.IModel => {
@@ -17,5 +17,6 @@ export const useHeader = (): IHeader.IModel => {
     top,
     action,
     type,
+    goBack,
   };
 };

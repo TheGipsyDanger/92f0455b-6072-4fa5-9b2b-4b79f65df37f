@@ -1,6 +1,9 @@
 export {Page} from './Page';
 export {Page as P} from './Page';
 export {Page as Screen} from './Page';
+export {PageWithHeader} from './PageWithHeader';
+export {PageWithHeader as PWH} from './PageWithHeader';
+export {PageWithHeader as ScreenWithHeader} from './PageWithHeader';
 export {Wrapped} from './Wrapped';
 export {Wrapped as W} from './Wrapped';
 export {Wrapped as Div} from './Wrapped';
