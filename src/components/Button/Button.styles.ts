@@ -38,9 +38,10 @@ export default {
           fontSize: theme.fontSizes.xbig,
         },
         link: {
-          color: theme.colors['white'],
+          color: theme.colors['primary'],
           fontFamily: theme.fonts.bold,
           fontSize: theme.fontSizes.xbig,
+          textDecorationLine: 'underline',
         },
         outline: {
           color: theme.colors['primary-clean'],
