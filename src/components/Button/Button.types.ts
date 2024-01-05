@@ -8,6 +8,9 @@ export namespace IButton {
     label: string;
     isLoading: boolean;
   }
+  export interface IViewAction extends IWrappedSystem {
+    variant: IButtonVariants;
+  }
   export interface IModelProps {}
   export interface IModel {}
 }

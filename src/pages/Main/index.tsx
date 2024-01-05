@@ -1,17 +1,14 @@
 import * as React from 'react';
-import {Div, ScreenWithHeader, Text} from '~/components/Atomics';
+import {Div, ScreenWithHeader, Text, Button} from '~/components';
 import {IMain} from '~/pages/Main/Main.types';
 import S from '~/pages/Main/Main.styles';
 import {Header} from '~/components';
 
 export const Main = (props: IMain.IView) => (
-  <Div flex={1}>
+  <Div flex={1} bg="white">
     <Header.Home />
     <ScreenWithHeader>
-      <S.Image />
-      <Text textAlign="center" mt={4}>
-        {`yarn g, to generate components`}
-      </Text>
+      <Button.Action variant="primary" onPress={() => alert('renan')} />
     </ScreenWithHeader>
   </Div>
 );

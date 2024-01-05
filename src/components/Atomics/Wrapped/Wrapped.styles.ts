@@ -9,12 +9,14 @@ import {
   space,
   typography,
   backgroundColor,
+  position,
 } from 'styled-system';
 
 export default {
   Wrapped: styled.View`
     ${space};
     ${color};
+    ${position};
     ${typography};
     ${border};
     ${flexbox};

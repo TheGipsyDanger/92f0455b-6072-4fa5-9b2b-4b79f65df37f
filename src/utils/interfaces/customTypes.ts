@@ -13,6 +13,7 @@ import {
   FontWeightProps,
   FontStyleProps,
   ResponsiveValue,
+  PositionProps,
 } from 'styled-system';
 import {IFont, IFontSizes, IColors, IRadius} from '~/styles/theme';
 
@@ -33,6 +34,7 @@ export interface IWrappedSystem
     BackgroundColorProps,
     BorderColorProps,
     LayoutProps,
+    PositionProps,
     withChildren {
   radius?: keyof IRadius;
   testID?: string;
