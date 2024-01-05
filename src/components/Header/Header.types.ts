@@ -1,6 +1,8 @@
 import {IFilterType} from '~/utils';
 export namespace IHeader {
-  export interface IView {}
+  export interface IView {
+    label?: string;
+  }
   export interface IModelProps {}
   export interface IModel {
     top: number;

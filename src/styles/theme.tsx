@@ -37,6 +37,7 @@ export const theme = {
   colors: {
     white: 'white',
     black: 'black',
+    transparent: 'transparent',
     primary: '#FF6B01',
     'primary-clean': '#FD9400',
     yellow: '#FFB800',

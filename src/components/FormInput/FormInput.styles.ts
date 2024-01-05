@@ -10,7 +10,7 @@ export default {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    box-shadow: ${theme.shadows.input};
+
     border-radius: ${theme.raddi.medium}px;
     background-color: ${theme.colors.white};
   `,

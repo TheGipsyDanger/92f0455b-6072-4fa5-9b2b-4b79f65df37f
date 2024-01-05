@@ -4,7 +4,7 @@ import {IHeader} from './Header.types';
 import {useHeader} from './Header.model';
 import S from './Header.styles';
 
-export const WithBack = (props: IHeader.IView) => {
+export const WithBack = ({label = 'Header'}: IHeader.IView) => {
   const {top, goBack} = useHeader();
   return (
     <Div testID={`Header`}>
@@ -14,7 +14,7 @@ export const WithBack = (props: IHeader.IView) => {
           <Icon name="arrowleft" color="black" size={26} />
         </Div>
         <Div height={55} flex={1} center>
-          <S.Title>{`Header`}</S.Title>
+          <S.Title>{label}</S.Title>
         </Div>
         <Div width={26} height={26}>
           <Icon name="" color="black" size={26} />

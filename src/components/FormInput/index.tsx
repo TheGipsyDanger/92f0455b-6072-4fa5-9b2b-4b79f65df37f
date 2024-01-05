@@ -20,9 +20,7 @@ export const FormInput = ({
   return (
     <Div {...rest} testID={`FormInput`}>
       {label}
-      <S.Container
-        borderColor={errors?.[name]?.message ? 'red' : 'transparent'}
-      >
+      <S.Container borderColor={errors?.[name]?.message ? 'red' : 'grey'}>
         {prepend && <Div ml={3}>{prepend}</Div>}
         <S.Content flex={1}>
           <Input

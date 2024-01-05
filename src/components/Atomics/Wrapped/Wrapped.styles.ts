@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 import {css} from 'styled-components';
-import {theme, IRadius} from '~/styles/theme';
+import {theme, IRadius, IColors} from '~/styles/theme';
 import {
   border,
   boxShadow,
@@ -10,6 +10,7 @@ import {
   typography,
   backgroundColor,
   position,
+  borderColor,
 } from 'styled-system';
 
 export default {
@@ -21,6 +22,7 @@ export default {
     ${border};
     ${flexbox};
     ${boxShadow};
+    ${borderColor};
     ${backgroundColor};
 
     ${({boxShadow: shadow}) =>
@@ -28,6 +30,9 @@ export default {
       css`
         elevation: 5;
       `}
+
+    border-color: ${({borderColor}: {borderColor: keyof IColors}) =>
+      theme.colors[borderColor]};
 
     ${({radius}) =>
       radius &&
