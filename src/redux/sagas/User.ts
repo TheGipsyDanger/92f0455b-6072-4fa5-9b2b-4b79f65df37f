@@ -15,10 +15,10 @@ function* createUser(params: ReturnType<typeof userActions.request>) {
   }
 }
 
-function* watchWelcomeRequests() {
+function* watchUsersRequests() {
   yield takeLatest(userActions.request, createUser);
 }
 
 export default function* root(): Generator {
-  yield all([watchWelcomeRequests()]);
+  yield all([watchUsersRequests()]);
 }

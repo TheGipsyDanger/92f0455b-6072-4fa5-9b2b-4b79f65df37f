@@ -12,25 +12,25 @@ export const TaskItem = ({
   file,
   ...rest
 }: ITaskItem.IView) => {
-  console.log({status});
+  const {pressDone, pressDelete, pressOpen} = useTaskItem();
   return (
     <S.Container
       rightButtons={[
         <Div>
           <Conditional render={status === 'done'}>
-            <Div onPress={() => alert('Reabrir')}>
+            <Div onPress={() => pressOpen(id)}>
               <Div height="100%" center width={75}>
                 <Icon name="back" size={26} color="primary" />
               </Div>
             </Div>
-            <Div onPress={() => alert('Fechar')}>
+            <Div onPress={() => pressDone(id)}>
               <Div height="100%" center width={75}>
                 <Icon name="checksquare" size={26} color="green" />
               </Div>
             </Div>
           </Conditional>
         </Div>,
-        <Div onPress={() => alert('DELETE')}>
+        <Div onPress={() => pressDelete(id)}>
           <Div height="100%" center width={75}>
             <Icon
               lib="MaterialCommunityIcons"

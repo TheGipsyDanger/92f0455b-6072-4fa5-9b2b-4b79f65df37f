@@ -6,8 +6,8 @@ export namespace ITaskItem {
   export interface IView extends ITask, IWrappedSystem {}
   export interface IModelProps {}
   export interface IModel {
-    pressDone: () => void;
-    pressDelete: () => void;
-    pressOpen: () => void;
+    pressDone: (id: string) => void;
+    pressDelete: (id: string) => void;
+    pressOpen: (id: string) => void;
   }
 }
