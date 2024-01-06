@@ -2,25 +2,15 @@ import * as React from 'react';
 import {ThemeProvider as StyledThemeProvider} from 'styled-components';
 import {withChildren} from '~/utils';
 import {metrics} from '../styles/metrics';
-
-const {defaultSpace} = metrics;
+import {RFValue} from 'react-native-responsive-fontsize';
 
 export const theme = {
   space: [
-    0,
-    defaultSpace() / 2,
-    defaultSpace(),
-    defaultSpace(2),
-    defaultSpace(3),
-    defaultSpace(4),
-    defaultSpace(5),
-    defaultSpace(6),
-    defaultSpace(7),
-    defaultSpace(8),
-    defaultSpace(9),
-    defaultSpace(10),
-    defaultSpace(11),
-    defaultSpace(12),
+    ...[
+      0,
+      RFValue(4),
+      ...Array.from({length: 8}, (_, index) => RFValue((index + 1) * 8)),
+    ],
   ],
   fonts: {
     regular: 'Inter_400Regular',
