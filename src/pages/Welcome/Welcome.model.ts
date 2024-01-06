@@ -2,13 +2,18 @@ import {IWelcome} from '~/pages/Welcome/Welcome.types';
 import {yupResolver} from '@hookform/resolvers/yup';
 import {welcomeSchema} from '~/utils/forms';
 import {useForm} from 'react-hook-form';
-import {IWelcomeForm, navigate, useAppDispatch, useAppSelector} from '~/utils';
-import {AppRoutes} from '~/routes/routeConfig';
-import {welcomeActions} from '~/redux/actions';
+import {
+  IWelcomeForm,
+  useAppDispatch,
+  useAppSelector,
+  useUserRealm,
+} from '~/utils';
+import {userActions} from '~/redux/actions';
 
 export const useWelcome = (): IWelcome.IModel => {
+  const {create} = useUserRealm();
   const dispatch = useAppDispatch();
-  const isLoading = useAppSelector(state => state.Welcome.isLoading);
+  const isLoading = useAppSelector(state => state.User.isLoading);
   const {
     control,
     trigger,
@@ -19,7 +24,8 @@ export const useWelcome = (): IWelcome.IModel => {
   });
 
   const onSubmit = (params: IWelcomeForm<string>) => {
-    dispatch(welcomeActions.request(params));
+    create(params);
+    dispatch(userActions.request(params));
   };
 
   return {

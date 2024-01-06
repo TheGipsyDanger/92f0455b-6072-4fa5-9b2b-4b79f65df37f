@@ -1,13 +1,35 @@
 import {IRequestPermissions} from '~/pages/RequestPermissions/RequestPermissions.types';
 import {AppRoutes} from '~/routes/routeConfig';
-import {navigate, useRequestPermissions as Permissions} from '~/utils';
+import {
+  navigate,
+  useRequestPermissions as Permissions,
+  usePermissionsRealm,
+} from '~/utils';
 
 export const useRequestPermissions = (): IRequestPermissions.IModel => {
-  const goToMain = () => navigate(AppRoutes.Main);
-  const {requestPermission} = Permissions();
+  const {create} = usePermissionsRealm();
+  const goToMain = () => {
+    create({
+      requested: 'true',
+      granted: 'false',
+      status: 'false',
+    });
+    navigate(AppRoutes.Main);
+  };
+
+  const {requestPermission, goToSettigs, permissions} = Permissions();
+
+  const isFirstTime = permissions?.status === 'undetermined';
+
+  const requestAction = async () => {
+    const resp = await requestPermission();
+    resp?.granted && goToMain();
+  };
 
   return {
     goToMain,
-    requestPermission,
+    requestAction,
+    isFirstTime,
+    goToSettigs,
   };
 };

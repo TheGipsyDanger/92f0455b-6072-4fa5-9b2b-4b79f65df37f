@@ -1,14 +1,11 @@
 import Realm from 'realm';
+import {UserSchema} from '~/utils/realm/models/user';
+import {PermissionsSchema} from '~/utils/realm/models/permissions';
 
-import {UserSchema} from '~/utils';
-
-const PATH = 'pantore.realm';
-
-const databaseOptions = {
-  path: PATH,
-  schema: [UserSchema],
-};
-
-const realm = new Realm(databaseOptions);
+const realm = new Realm({
+  path: 'pantore.realm',
+  schema: [UserSchema, PermissionsSchema],
+  deleteRealmIfMigrationNeeded: true,
+});
 
 export default realm;

@@ -1,6 +1,7 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import * as views from '../pages';
+import {useDefineInitalRoute} from '~/utils';
 
 const Stack = createStackNavigator();
 
@@ -19,8 +20,10 @@ function defineRoutesProps(name: string) {
 const viewsNames = Object.keys(views);
 
 export default function Routes() {
+  const {defineRoute} = useDefineInitalRoute();
+  const initialRoute = defineRoute();
   return (
-    <Stack.Navigator initialRouteName="RequestPermissions">
+    <Stack.Navigator initialRouteName={initialRoute}>
       {viewsNames.map(viewName => (
         <Stack.Screen key={viewName} {...defineRoutesProps(viewName)} />
       ))}

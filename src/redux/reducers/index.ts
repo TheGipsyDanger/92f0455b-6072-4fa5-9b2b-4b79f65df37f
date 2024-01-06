@@ -1,9 +1,9 @@
-import Welcome from './Welcome';
 import HeaderFilter from './HeaderFilter';
+import User from './User';
 // Import redux here
 
 export const reducers = {
-  Welcome,
   HeaderFilter,
+  User,
   // use redux here
 };

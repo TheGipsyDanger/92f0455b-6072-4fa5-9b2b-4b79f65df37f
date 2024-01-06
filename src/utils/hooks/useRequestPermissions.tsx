@@ -1,10 +1,18 @@
 import * as MediaLibrary from 'expo-media-library';
 import * as Linking from 'expo-linking';
 import {Alert} from 'react-native';
+import {goBack} from '../navigator';
+import {usePermissionsRealm} from './usePermissionsRealm';
 
 export const useRequestPermissions = () => {
+  const {create} = usePermissionsRealm();
   const [permissionResponse, requestPermissionMediaLibrary] =
     MediaLibrary.usePermissions();
+
+  const actionToGoSettings = () => {
+    goBack();
+    Linking.openSettings();
+  };
 
   const goToSettigs = () => {
     Alert.alert(
@@ -16,24 +24,21 @@ export const useRequestPermissions = () => {
           onPress: () => {},
           style: 'cancel',
         },
-        {text: 'ir para permissões', onPress: () => Linking.openSettings()},
+        {text: 'ir para permissões', onPress: actionToGoSettings},
       ]
     );
   };
 
-  const requestPermission = () => {
-    const options = {
-      undetermined: requestPermissionMediaLibrary,
-      denied: goToSettigs,
-      default: () => {},
-    };
-
-    const func =
-      options[permissionResponse?.status as keyof typeof options] ||
-      options.denied;
-
-    func();
+  const requestPermission = async () => {
+    try {
+      const resp = await requestPermissionMediaLibrary();
+      create({
+        requested: 'true',
+        granted: String(resp.granted),
+        status: resp.status,
+      });
+      return resp as MediaLibrary.PermissionResponse;
+    } catch {}
   };
-
-  return {requestPermission};
+  return {requestPermission, goToSettigs, permissions: permissionResponse};
 };

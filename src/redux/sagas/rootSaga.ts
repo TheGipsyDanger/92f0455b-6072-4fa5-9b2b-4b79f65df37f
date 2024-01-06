@@ -1,7 +1,7 @@
 import {all} from 'redux-saga/effects';
 
-import welcomeSaga from './Welcome';
+import userSaga from './User';
 
 export default function* rootSaga(): Generator {
-  yield all([welcomeSaga()]);
+  yield all([userSaga()]);
 }

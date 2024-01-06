@@ -1,5 +1,7 @@
+// 'use strict';
+
 export const UserSchema = {
-  name: 'user',
+  name: 'User',
   properties: {
     name: 'string',
   },
