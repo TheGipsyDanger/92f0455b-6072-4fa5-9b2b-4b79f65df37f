@@ -9,5 +9,6 @@ export namespace IHeader {
     type: IFilterType;
     action: (type: IFilterType) => void;
     goBack: () => void;
+    name: string;
   }
 }

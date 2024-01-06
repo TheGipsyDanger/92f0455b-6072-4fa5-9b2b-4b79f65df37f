@@ -28,7 +28,9 @@ export const Main = (props: IMain.IView) => {
       <Header.Home label="Tarefas do fulano" />
       <Div flex={1}>
         <FlatList
+          showsVerticalScrollIndicator={false}
           contentContainerStyle={{
+            paddingBottom: theme.space[6],
             paddingHorizontal: theme.space[2],
           }}
           data={tasks}

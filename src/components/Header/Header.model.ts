@@ -7,6 +7,7 @@ import {changeFilter} from '~/redux/actions';
 export const useHeader = (): IHeader.IModel => {
   const dispatch = useDispatch();
   const type = useAppSelector(state => state.HeaderFilter.type);
+  const name = useAppSelector(state => state.User.user.name);
   const {top} = useSafeAreaInsets();
 
   const action = (type: IFilterType) => {
@@ -18,5 +19,6 @@ export const useHeader = (): IHeader.IModel => {
     action,
     type,
     goBack,
+    name: name.split(' ')[0],
   };
 };
