@@ -64,17 +64,17 @@ export const CreateTask = (props: ICreateTask.IView) => {
                     >
                       <Div flex={1} mr={1}>
                         <Button.Default
-                          onPress={() => onChange('done')}
-                          variant={value === 'done' ? 'primary' : 'outline'}
-                          label="feito"
+                          onPress={() => onChange('open')}
+                          variant={value !== 'done' ? 'primary' : 'outline'}
+                          label="fazer"
                           isLoading={false}
                         />
                       </Div>
                       <Div flex={1} ml={1}>
                         <Button.Default
-                          onPress={() => onChange('open')}
-                          variant={value !== 'done' ? 'primary' : 'outline'}
-                          label="fazer"
+                          onPress={() => onChange('done')}
+                          variant={value === 'done' ? 'primary' : 'outline'}
+                          label="feito"
                           isLoading={false}
                         />
                       </Div>
