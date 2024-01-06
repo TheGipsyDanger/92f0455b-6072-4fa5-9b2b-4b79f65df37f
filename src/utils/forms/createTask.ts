@@ -6,13 +6,11 @@ const exec = (): ISchema<ICreateTaskForm<string>, ICreateTaskForm<any>> => {
     title: yup
       .string()
       .trim()
-      .lowercase()
       .required('Campo obrigatório')
       .min(4, 'Nome muito curto'),
     description: yup
       .string()
       .trim()
-      .lowercase()
       .required('Campo obrigatório')
       .min(4, 'Nome muito curto'),
   });

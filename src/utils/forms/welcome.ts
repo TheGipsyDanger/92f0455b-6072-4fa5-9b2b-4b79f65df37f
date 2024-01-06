@@ -6,7 +6,6 @@ const exec = (): ISchema<IWelcomeForm<string>, IWelcomeForm<any>> => {
     name: yup
       .string()
       .trim()
-      .lowercase()
       .required('Campo obrigatório')
       .min(4, 'Nome muito curto'),
   });

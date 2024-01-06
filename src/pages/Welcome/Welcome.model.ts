@@ -7,11 +7,14 @@ import {
   useAppDispatch,
   useAppSelector,
   useUserRealm,
+  useRouterRealm,
 } from '~/utils';
 import {userActions} from '~/redux/actions';
+import {AppRoutes} from '~/routes/routeConfig';
 
 export const useWelcome = (): IWelcome.IModel => {
   const {create} = useUserRealm();
+  const {set} = useRouterRealm();
   const dispatch = useAppDispatch();
   const isLoading = useAppSelector(state => state.User.isLoading);
   const {
@@ -25,6 +28,7 @@ export const useWelcome = (): IWelcome.IModel => {
 
   const onSubmit = (params: IWelcomeForm<string>) => {
     create(params);
+    set({initialRouter: AppRoutes.RequestPermissions});
     dispatch(userActions.request(params));
   };
 

@@ -2,18 +2,15 @@ import {IRequestPermissions} from '~/pages/RequestPermissions/RequestPermissions
 import {AppRoutes} from '~/routes/routeConfig';
 import {
   navigate,
+  useRouterRealm,
   useRequestPermissions as Permissions,
-  usePermissionsRealm,
 } from '~/utils';
 
 export const useRequestPermissions = (): IRequestPermissions.IModel => {
-  const {create} = usePermissionsRealm();
+  const {set} = useRouterRealm();
+
   const goToMain = () => {
-    create({
-      requested: 'true',
-      granted: 'false',
-      status: 'false',
-    });
+    set({initialRouter: AppRoutes.Main});
     navigate(AppRoutes.Main);
   };
 

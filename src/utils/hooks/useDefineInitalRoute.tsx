@@ -1,24 +1,14 @@
-import {useUserRealm} from './useUserRealm';
-import {usePermissionsRealm} from './usePermissionsRealm';
-import {AppRoutes} from '~/routes/routeConfig';
+import {AppRoutes, RootParamList} from '~/routes/routeConfig';
+import {useRouterRealm} from './useRouterRealm';
 
-export const useDefineInitalRoute = () => {
-  const {get: getUser} = useUserRealm();
-  const {get: getPermissions} = usePermissionsRealm();
+type IUseDefineInitalRoute = keyof RootParamList;
 
-  const defineRoute = () => {
-    const hasUser = Boolean(getUser());
-    const permissions = getPermissions();
+export const useDefineInitalRoute = (): IUseDefineInitalRoute => {
+  const {get} = useRouterRealm();
 
-    console.log(permissions.requested);
+  const router = get();
 
-    if (hasUser) {
-      return Boolean(permissions.requested)
-        ? AppRoutes.Main
-        : AppRoutes.RequestPermissions;
-    } else {
-      return AppRoutes.Welcome;
-    }
-  };
-  return {defineRoute};
+  return (
+    router ? router.initialRouter : AppRoutes.Welcome
+  ) as IUseDefineInitalRoute;
 };
