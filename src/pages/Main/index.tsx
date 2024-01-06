@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {useCallback} from 'react';
 import {FlatList, ListRenderItem} from 'react-native';
-import {Div, Button, Text, TaskItem} from '~/components';
+import {Div, Button, TaskItem} from '~/components';
 import {IMain} from '~/pages/Main/Main.types';
 import {useMain} from '~/pages/Main/Main.model';
 import {Header} from '~/components';
@@ -17,6 +17,7 @@ export const Main = (props: IMain.IView) => {
         {...item}
         {...(index === 0 ? {mt: 4, mb: 3} : {})}
         {...(index !== 0 ? {mb: 3} : {})}
+        mx={3}
       />
     );
   };
@@ -25,13 +26,12 @@ export const Main = (props: IMain.IView) => {
 
   return (
     <Div flex={1} bg="white">
-      <Header.Home label="Tarefas do fulano" />
+      <Header.Home />
       <Div flex={1}>
         <FlatList
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{
             paddingBottom: theme.space[6],
-            paddingHorizontal: theme.space[2],
           }}
           data={tasks}
           extraData={tasks}

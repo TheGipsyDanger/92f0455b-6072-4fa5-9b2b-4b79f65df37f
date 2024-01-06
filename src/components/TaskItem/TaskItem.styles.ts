@@ -2,9 +2,11 @@ import styled from 'styled-components/native';
 import {Div} from '../Atomics';
 import {theme} from '~/styles/theme';
 import {IStatus} from './TaskItem.types';
+import Swipeable from 'react-native-swipeable';
 
 export default {
-  Container: styled(Div)`
+  Container: styled(Swipeable)``,
+  Content: styled(Div)`
     border-width: 1px;
     border-color: red;
     border-color: ${theme.colors['grey-clean']};
