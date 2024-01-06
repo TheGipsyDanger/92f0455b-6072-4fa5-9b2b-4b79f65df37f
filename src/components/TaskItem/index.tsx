@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {Div, Spacing, Text, Icon, Conditional} from '../Atomics';
 import {ITaskItem} from './TaskItem.types';
+import {useTaskItem} from './TaskItem.model';
 import S from './TaskItem.styles';
 
 export const TaskItem = ({
@@ -11,21 +12,36 @@ export const TaskItem = ({
   file,
   ...rest
 }: ITaskItem.IView) => {
-  const rightButtons = [
-    <Div onPress={() => alert('DONE')}>
-      <Div height="100%" center width={75}>
-        <Icon name="checksquare" size={26} color="green" />
-      </Div>
-    </Div>,
-    <Div onPress={() => alert('DELETE')}>
-      <Div height="100%" center width={75}>
-        <Icon name="closesquare" size={26} color="red" />
-      </Div>
-    </Div>,
-  ];
-
+  console.log({status});
   return (
-    <S.Container rightButtons={rightButtons}>
+    <S.Container
+      rightButtons={[
+        <Div>
+          <Conditional render={status === 'done'}>
+            <Div onPress={() => alert('Reabrir')}>
+              <Div height="100%" center width={75}>
+                <Icon name="back" size={26} color="primary" />
+              </Div>
+            </Div>
+            <Div onPress={() => alert('Fechar')}>
+              <Div height="100%" center width={75}>
+                <Icon name="checksquare" size={26} color="green" />
+              </Div>
+            </Div>
+          </Conditional>
+        </Div>,
+        <Div onPress={() => alert('DELETE')}>
+          <Div height="100%" center width={75}>
+            <Icon
+              lib="MaterialCommunityIcons"
+              name="delete"
+              size={26}
+              color="red"
+            />
+          </Div>
+        </Div>,
+      ]}
+    >
       <Div {...rest} testID={`TaskItem`}>
         <S.Content>
           <Div flexDirection="row">
