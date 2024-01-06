@@ -1,10 +1,16 @@
-import {createAsyncAction, createCustomAction} from 'typesafe-actions';
+import {createAsyncAction} from 'typesafe-actions';
 import {ITask} from '~/utils';
 
-interface IDeleteRequest extends Pick<ITask, 'id'> {}
+interface IIDRequest extends Pick<ITask, 'id'> {}
 
 export const deleteTaskActions = createAsyncAction(
   'Tasks/deleteTask',
   'Tasks/deleteTaskSuccess',
   'Tasks/deleteTaskFailure'
-)<IDeleteRequest, IDeleteRequest, string>();
+)<IIDRequest, IIDRequest, string>();
+
+export const changeStatusTaskActions = createAsyncAction(
+  'Tasks/changeStatus',
+  'Tasks/changeStatusSuccess',
+  'Tasks/changeStatusFailure'
+)<IIDRequest, IIDRequest, string>();

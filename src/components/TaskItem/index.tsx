@@ -12,18 +12,19 @@ export const TaskItem = ({
   file,
   ...rest
 }: ITaskItem.IView) => {
-  const {pressDone, pressDelete, pressOpen} = useTaskItem();
+  const {pressChange, pressDelete, ref} = useTaskItem();
   return (
     <S.Container
+      ref={ref}
       rightButtons={[
         <Div>
           <Conditional render={status === 'done'}>
-            <Div onPress={() => pressOpen(id)}>
+            <Div onPress={() => pressChange(id)}>
               <Div height="100%" center width={75}>
                 <Icon name="back" size={26} color="primary" />
               </Div>
             </Div>
-            <Div onPress={() => pressDone(id)}>
+            <Div onPress={() => pressChange(id)}>
               <Div height="100%" center width={75}>
                 <Icon name="checksquare" size={26} color="green" />
               </Div>

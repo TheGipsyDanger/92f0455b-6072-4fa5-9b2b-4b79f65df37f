@@ -1,6 +1,7 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {ITask} from '~/utils';
 import tasks from '../../../__mocks__/tasks.json';
+import {useMapUtils} from '~/utils/hooks/useMapUtils';
 
 interface ITasks {
   tasks: ITask[];
@@ -27,6 +28,28 @@ const Tasks = createSlice({
       };
     },
     deleteTaskFailure: state => {
+      return {...state, isLoading: false};
+    },
+    changeStatus: state => {
+      return {...state, isLoading: true};
+    },
+    changeStatusSuccess: (state, {payload}: PayloadAction<{id: string}>) => {
+      console.log('changeStatusSuccess');
+      const {toMap, toArray} = useMapUtils();
+      const mapTasks = toMap(state.tasks);
+
+      mapTasks.set(payload.id, {
+        ...mapTasks.get(payload.id),
+        status: mapTasks.get(payload.id).status === 'open' ? 'done' : 'open',
+      });
+
+      return {
+        ...state,
+        isLoading: false,
+        tasks: toArray(mapTasks),
+      };
+    },
+    changeStatusFailure: state => {
       return {...state, isLoading: false};
     },
   },

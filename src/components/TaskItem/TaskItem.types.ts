@@ -6,8 +6,8 @@ export namespace ITaskItem {
   export interface IView extends ITask, IWrappedSystem {}
   export interface IModelProps {}
   export interface IModel {
-    pressDone: (id: string) => void;
+    pressChange: (id: string) => void;
     pressDelete: (id: string) => void;
-    pressOpen: (id: string) => void;
+    ref: React.MutableRefObject<null>;
   }
 }
