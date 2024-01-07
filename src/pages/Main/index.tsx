@@ -17,7 +17,7 @@ const Empty = () => (
 );
 
 export const Main = (props: IMain.IView) => {
-  const {goToCreateTask, tasks} = useMain();
+  const {goToCreateTask, tasks, type} = useMain();
 
   const renderItem: ListRenderItem<ITask> = ({item, index}) => {
     return (
@@ -37,7 +37,13 @@ export const Main = (props: IMain.IView) => {
       <Header.Home />
       <Div flex={1}>
         <FlatList
-          ListEmptyComponent={<Empty />}
+          ListEmptyComponent={() => (
+            <Div mt={4}>
+              <Text font="bold" textAlign="center">
+                {`Sem tarefas ${type === 'all' ? '' : 'abertas'}\npor enquanto`}
+              </Text>
+            </Div>
+          )}
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{
             paddingBottom: theme.space[6],
@@ -52,5 +58,3 @@ export const Main = (props: IMain.IView) => {
     </Div>
   );
 };
-
-theme;

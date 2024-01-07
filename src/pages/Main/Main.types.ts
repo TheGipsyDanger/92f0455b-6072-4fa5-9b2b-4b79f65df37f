@@ -5,6 +5,7 @@ export namespace IMain {
   export interface IModelProps {}
   export interface IModel {
     tasks: ITask[];
+    type: string;
     goToCreateTask: () => void;
   }
 }
