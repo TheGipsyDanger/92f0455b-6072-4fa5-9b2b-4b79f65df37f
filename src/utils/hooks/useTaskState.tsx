@@ -2,14 +2,20 @@ import {
   deleteTaskActions,
   changeStatusTaskActions,
   selectTaskActions,
+  createTaskActions,
 } from '~/redux/actions';
 import {useAppDispatch, useAppSelector} from '../redux';
+import {ITask} from '~/utils';
 
 export const useTaskState = () => {
   const dispatch = useAppDispatch();
 
   const remove = (id: string) => {
     dispatch(deleteTaskActions.request({id}));
+  };
+
+  const create = (task: ITask) => {
+    dispatch(createTaskActions.request(task));
   };
 
   const changeStatus = (id: string) => {
@@ -20,5 +26,5 @@ export const useTaskState = () => {
     dispatch(selectTaskActions.request({id}));
   };
 
-  return {remove, changeStatus, selectTask};
+  return {remove, changeStatus, selectTask, create};
 };

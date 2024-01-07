@@ -49,10 +49,10 @@ export const TaskItem = ({
             <S.Status status={status} />
             <Div flex={2} px={3} py={4}>
               <Spacing space={2}>
-                <Text size="xbig" font="bold">
+                <Text size="xbig" font="bold" numberOfLines={2}>
                   {title}
                 </Text>
-                <Text>{description}</Text>
+                <Text numberOfLines={3}>{description}</Text>
               </Spacing>
             </Div>
             <Conditional render={Boolean(file)}>

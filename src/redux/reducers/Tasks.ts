@@ -7,46 +7,62 @@ interface ITasks {
   tasks: ITask[];
   selectedTask: ITask;
   isLoading: boolean;
+  createLoading: boolean;
+  actionLoading: boolean;
 }
 
 const initialState: ITasks = {
   tasks: tasks as ITask[],
   selectedTask: {} as ITask,
   isLoading: false,
+  createLoading: false,
+  actionLoading: false,
 };
 
 const Tasks = createSlice({
   name: 'Tasks',
   initialState,
   reducers: {
+    createTask: state => {
+      return {...state, createLoading: true};
+    },
+    createTaskSuccess: (state, {payload}: PayloadAction<ITask>) => {
+      return {
+        ...state,
+        createLoading: false,
+        tasks: [payload, ...state.tasks],
+      };
+    },
+    createTaskFailure: state => {
+      return {...state, createLoading: false};
+    },
     selectTask: state => {
-      return {...state, isLoading: true};
+      return {...state};
     },
     selectTaskSuccess: (state, {payload}: PayloadAction<{id: string}>) => {
       return {
         ...state,
-        isLoading: false,
         selectedTask: state.tasks.filter(task => task.id === payload.id)[0],
       };
     },
     selectTaskFailure: state => {
-      return {...state, isLoading: false};
+      return {...state};
     },
     deleteTask: state => {
-      return {...state, isLoading: true};
+      return {...state, actionLoading: true};
     },
     deleteTaskSuccess: (state, {payload}: PayloadAction<{id: string}>) => {
       return {
         ...state,
-        isLoading: false,
+        actionLoading: false,
         tasks: state.tasks.filter(task => task.id !== payload.id),
       };
     },
     deleteTaskFailure: state => {
-      return {...state, isLoading: false};
+      return {...state, actionLoading: false};
     },
     changeStatus: state => {
-      return {...state, isLoading: true};
+      return {...state, actionLoading: true};
     },
     changeStatusSuccess: (state, {payload}: PayloadAction<{id: string}>) => {
       const {toMap, toArray} = useMapUtils();
@@ -59,12 +75,12 @@ const Tasks = createSlice({
 
       return {
         ...state,
-        isLoading: false,
+        actionLoading: false,
         tasks: toArray(mapTasks),
       };
     },
     changeStatusFailure: state => {
-      return {...state, isLoading: false};
+      return {...state, actionLoading: false};
     },
   },
 });

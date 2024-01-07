@@ -14,7 +14,7 @@ import S from '~/pages/CreateTask/CreateTask.styles';
 import {Controller} from 'react-hook-form';
 
 export const CreateTask = (props: ICreateTask.IView) => {
-  const {control, trigger, errors, isValid, onSubmit, handleSubmit} =
+  const {control, trigger, errors, isValid, onSubmit, handleSubmit, isLoading} =
     useCreateTask();
 
   return (
@@ -54,11 +54,20 @@ export const CreateTask = (props: ICreateTask.IView) => {
                   )}
                 />
               </Div>
-              <Div mb={4}>
-                <Button.Centralize
-                  variant="outline"
-                  label="adicionar arquivo"
-                  isLoading={false}
+              <Div mb={3}>
+                <S.Label>Adicionar arquivo*</S.Label>
+                <Controller
+                  control={control}
+                  name="file"
+                  defaultValue=""
+                  render={({field: {onChange, onBlur, value, name}}) => (
+                    <Button.Centralize
+                      onPress={() => onChange('file:///renanzin')}
+                      variant="outline"
+                      label="adicionar arquivo"
+                      isLoading={false}
+                    />
+                  )}
                 />
               </Div>
               <Div>
@@ -99,9 +108,10 @@ export const CreateTask = (props: ICreateTask.IView) => {
           </Div>
           <Button.Default
             mb={4}
+            onPress={handleSubmit(onSubmit)}
             variant={isValid ? 'primary' : 'disable'}
-            label="renan"
-            isLoading={false}
+            label="Criar"
+            isLoading={isLoading}
           />
         </ScreenContent>
       </ScreenWithHeader>
