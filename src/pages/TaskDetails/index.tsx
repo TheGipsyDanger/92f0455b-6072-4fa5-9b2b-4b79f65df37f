@@ -7,13 +7,16 @@ import {
   ScreenWithHeader,
   Text,
   Spacing,
-  Button
+  Button,
+  Conditional
 } from '~/components';
 import {useTaskDetails} from '~/pages/TaskDetails/TaskDetails.model';
 import S from '~/pages/TaskDetails/TaskDetails.styles';
+import {useFileUtils} from '~/utils';
 
 export const TaskDetails = () => {
   const {selectedTask} = useTaskDetails();
+  const {getExtensions} = useFileUtils();
   return (
     <Div flex={1} bg="white">
       <Header.WithBack label={'Visualizar Tarefa'} />
@@ -62,7 +65,12 @@ export const TaskDetails = () => {
                   </Div>
                 </Div>
               </Div>
-              {selectedTask.file && (
+              <Conditional
+                render={Boolean(
+                  selectedTask.file &&
+                    getExtensions(selectedTask.file) !== 'pdf'
+                )}
+              >
                 <Div>
                   <Image
                     resizeMode="contain"
@@ -70,7 +78,22 @@ export const TaskDetails = () => {
                     style={{width: '100%', height: 200}}
                   />
                 </Div>
-              )}
+              </Conditional>
+              <Conditional
+                render={Boolean(
+                  selectedTask.file &&
+                    getExtensions(selectedTask.file) === 'pdf'
+                )}
+              >
+                <Div mb={4}>
+                  <Text textAlign="center" color="black-clean" mb={4}>
+                    {'Arquivo ainda não suportado\n\n'}
+                    <Text color="black" font="bold">
+                      {'Em breve você vai poder ver seu PDF aqui.'}
+                    </Text>
+                  </Text>
+                </Div>
+              </Conditional>
             </Spacing>
           </Div>
           <Div>
