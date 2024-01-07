@@ -5,11 +5,11 @@ import {theme} from '~/styles';
 export default {
   Label: styled(Text).attrs({
     mb: 3,
-    font: 'bold',
+    font: 'bold'
   })``,
   Container: styled(Div).attrs({
     borderWidth: 1,
-    p: 3,
+    p: 3
   })`
     min-height: 55px;
     flex-direction: row;
@@ -18,5 +18,5 @@ export default {
     border-radius: ${theme.raddi.medium}px;
     background-color: ${theme.colors.white};
     border-color: ${theme.colors.grey};
-  `,
+  `
 };

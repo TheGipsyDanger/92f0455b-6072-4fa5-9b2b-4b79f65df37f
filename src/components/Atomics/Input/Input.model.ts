@@ -10,6 +10,6 @@ export const useInput = (props: IInput.IView): IInput.IModel => {
   return {
     ...props,
     handleValue,
-    handleChange,
+    handleChange
   };
 };

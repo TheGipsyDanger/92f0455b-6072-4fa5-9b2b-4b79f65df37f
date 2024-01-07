@@ -7,7 +7,7 @@ import {
   useAppDispatch,
   useAppSelector,
   useUserRealm,
-  useRouterRealm,
+  useRouterRealm
 } from '~/utils';
 import {userActions} from '~/redux/actions';
 import {AppRoutes} from '~/routes/routeConfig';
@@ -21,9 +21,9 @@ export const useWelcome = (): IWelcome.IModel => {
     control,
     trigger,
     handleSubmit,
-    formState: {errors, isValid},
+    formState: {errors, isValid}
   } = useForm({
-    resolver: yupResolver(welcomeSchema),
+    resolver: yupResolver(welcomeSchema)
   });
 
   const onSubmit = (params: IWelcomeForm<string>) => {
@@ -39,6 +39,6 @@ export const useWelcome = (): IWelcome.IModel => {
     errors,
     trigger,
     isValid,
-    isLoading,
+    isLoading
   };
 };

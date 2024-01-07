@@ -8,5 +8,5 @@ export const userActions = createAsyncAction(
 )<IUser, IUser, string>();
 
 export const setUser = createCustomAction('User/setUser', (user: IUser) => ({
-  payload: {user},
+  payload: {user}
 }));

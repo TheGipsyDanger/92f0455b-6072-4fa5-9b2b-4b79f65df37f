@@ -7,7 +7,7 @@ const exec = (): ISchema<IWelcomeForm<string>, IWelcomeForm<any>> => {
       .string()
       .trim()
       .required('Campo obrigatório')
-      .min(4, 'Nome muito curto'),
+      .min(4, 'Nome muito curto')
   });
 };
 

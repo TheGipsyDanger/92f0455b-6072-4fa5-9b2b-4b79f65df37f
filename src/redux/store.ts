@@ -9,8 +9,8 @@ const store = configureStore({
   reducer: reducers,
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
-      serializableCheck: false,
-    }).prepend(sagaMiddleware),
+      serializableCheck: false
+    }).prepend(sagaMiddleware)
 });
 
 sagaMiddleware.run(rootSaga);

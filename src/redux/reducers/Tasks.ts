@@ -16,7 +16,7 @@ const initialState: ITasks = {
   selectedTask: {} as ITask,
   isLoading: false,
   createLoading: false,
-  actionLoading: false,
+  actionLoading: false
 };
 
 const Tasks = createSlice({
@@ -30,7 +30,7 @@ const Tasks = createSlice({
       return {
         ...state,
         createLoading: false,
-        tasks: [payload, ...state.tasks],
+        tasks: [payload, ...state.tasks]
       };
     },
     createTaskFailure: state => {
@@ -42,7 +42,7 @@ const Tasks = createSlice({
     selectTaskSuccess: (state, {payload}: PayloadAction<{id: string}>) => {
       return {
         ...state,
-        selectedTask: state.tasks.filter(task => task.id === payload.id)[0],
+        selectedTask: state.tasks.filter(task => task.id === payload.id)[0]
       };
     },
     selectTaskFailure: state => {
@@ -55,7 +55,7 @@ const Tasks = createSlice({
       return {
         ...state,
         actionLoading: false,
-        tasks: state.tasks.filter(task => task.id !== payload.id),
+        tasks: state.tasks.filter(task => task.id !== payload.id)
       };
     },
     deleteTaskFailure: state => {
@@ -70,19 +70,19 @@ const Tasks = createSlice({
 
       mapTasks.set(payload.id, {
         ...mapTasks.get(payload.id),
-        status: mapTasks.get(payload.id).status === 'open' ? 'done' : 'open',
+        status: mapTasks.get(payload.id).status === 'open' ? 'done' : 'open'
       });
 
       return {
         ...state,
         actionLoading: false,
-        tasks: toArray(mapTasks),
+        tasks: toArray(mapTasks)
       };
     },
     changeStatusFailure: state => {
       return {...state, actionLoading: false};
-    },
-  },
+    }
+  }
 });
 
 export default Tasks.reducer;

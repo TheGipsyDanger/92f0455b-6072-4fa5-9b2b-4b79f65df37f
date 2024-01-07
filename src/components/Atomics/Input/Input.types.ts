@@ -11,7 +11,7 @@ import {
   type FontStyleProps,
   type TypographyProps,
   type FontFamilyProps,
-  type FontWeightProps,
+  type FontWeightProps
 } from 'styled-system';
 
 export namespace IInput {

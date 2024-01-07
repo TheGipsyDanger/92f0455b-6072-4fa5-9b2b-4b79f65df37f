@@ -2,7 +2,7 @@ import {
   deleteTaskActions,
   changeStatusTaskActions,
   selectTaskActions,
-  createTaskActions,
+  createTaskActions
 } from '~/redux/actions';
 import {useAppDispatch} from '../redux';
 import {type ITask} from '~/utils';

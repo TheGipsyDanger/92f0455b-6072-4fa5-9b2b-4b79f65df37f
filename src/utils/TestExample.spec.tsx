@@ -43,7 +43,7 @@ const ComponentDeTest: React.FC<IComponentDeTest> = ({press}) => {
 // Exemplo de mock de library
 jest.mock('@react-navigation/native', () => {
   return {
-    useNavigation: jest.fn(),
+    useNavigation: jest.fn()
   };
 });
 

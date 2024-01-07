@@ -6,7 +6,7 @@ import {RouterSchema} from '~/utils/realm/models/router';
 const realm = new Realm({
   path: 'pantore.realm',
   schema: [UserSchema, RouterSchema, PermissionsSchema],
-  deleteRealmIfMigrationNeeded: true,
+  deleteRealmIfMigrationNeeded: true
 });
 
 export default realm;

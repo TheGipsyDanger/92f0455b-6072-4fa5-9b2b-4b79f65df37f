@@ -7,5 +7,5 @@ export default {
     ${color};
     ${backgroundColor};
     flex: 1;
-  `,
+  `
 };

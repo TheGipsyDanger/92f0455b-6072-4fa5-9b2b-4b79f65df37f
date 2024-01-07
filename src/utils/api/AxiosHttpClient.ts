@@ -1,7 +1,7 @@
 import {
   type HttpRequest,
   type HttpResponse,
-  type HttpClient,
+  type HttpClient
 } from '~/utils/api';
 
 import axios, {type AxiosResponse} from 'axios';
@@ -14,7 +14,7 @@ export class AxiosHttpClientDefault implements HttpClient {
         url: data.url,
         method: data.method,
         data: data.body,
-        headers: data.headers,
+        headers: data.headers
       });
     } catch (error: any) {
       axiosResponse = error.response;
@@ -22,7 +22,7 @@ export class AxiosHttpClientDefault implements HttpClient {
     return {
       statusCode: axiosResponse.status,
       data: axiosResponse.data,
-      message: '',
+      message: ''
     };
   }
 }

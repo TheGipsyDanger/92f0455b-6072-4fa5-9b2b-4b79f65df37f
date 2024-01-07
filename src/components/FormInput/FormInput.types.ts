@@ -4,7 +4,7 @@ import {
   type IWrappedSystem,
   type ITriggerFormInput,
   type IFormErrosAccepeted,
-  type IFormInputNameAccepeted,
+  type IFormInputNameAccepeted
 } from '~/utils';
 
 export namespace IFormInput {

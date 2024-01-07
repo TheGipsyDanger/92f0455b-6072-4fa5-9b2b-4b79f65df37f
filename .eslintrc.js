@@ -30,5 +30,8 @@ module.exports = {
     '@typescript-eslint/ban-ts-comment': 'off',
     '@typescript-eslint/consistent-type-assertions': 'off',
     '@typescript-eslint/strict-boolean-expressions': 'off',
+    'eslint-disable generator-star-spacing': 'off',
+    '@typescript-eslint/space-before-function-paren': 'off',
+    'generator-star-spacing': 'off',
   },
 };

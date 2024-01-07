@@ -6,7 +6,7 @@ interface IHeaderFilterState {
 }
 
 const initialState: IHeaderFilterState = {
-  type: 'all',
+  type: 'all'
 };
 
 const HeaderFilter = createSlice({
@@ -15,8 +15,8 @@ const HeaderFilter = createSlice({
   reducers: {
     changeFilter: (state, action: PayloadAction<{type: IFilterType}>) => {
       return {...state, type: action.payload.type};
-    },
-  },
+    }
+  }
 });
 
 export default HeaderFilter.reducer;

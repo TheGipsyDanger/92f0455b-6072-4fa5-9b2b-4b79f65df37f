@@ -11,5 +11,5 @@ export default {
   `,
   KeyboardAvoidStyled: styled(KeyboardAvoidingView)`
     flex: 1;
-  `,
+  `
 };

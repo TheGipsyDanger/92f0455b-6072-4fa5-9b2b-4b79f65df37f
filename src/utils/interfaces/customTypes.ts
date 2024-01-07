@@ -13,13 +13,13 @@ import {
   type FontWeightProps,
   type FontStyleProps,
   type ResponsiveValue,
-  type PositionProps,
+  type PositionProps
 } from 'styled-system';
 import {
   type IFont,
   type IFontSizes,
   type IColors,
-  type IRadius,
+  type IRadius
 } from '~/styles/theme';
 
 // eslint-disable-next-line @typescript-eslint/ban-types

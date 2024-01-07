@@ -1,7 +1,7 @@
 import {createRef} from 'react';
 import {
   CommonActions,
-  type NavigationContainerRef,
+  type NavigationContainerRef
 } from '@react-navigation/native';
 import {type RootParamList} from '~/routes/routeConfig';
 

@@ -6,14 +6,14 @@ import {useDefineInitalRoute} from '~/utils';
 const Stack = createStackNavigator();
 
 const allViews: Record<string, any> = {
-  ...views,
+  ...views
 };
 
 function defineRoutesProps(name: string) {
   return {
     name,
     options: {headerShown: false},
-    component: allViews[name],
+    component: allViews[name]
   };
 }
 

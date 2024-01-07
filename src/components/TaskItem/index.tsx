@@ -40,7 +40,7 @@ export const TaskItem = ({
               color="red"
             />
           </Div>
-        </Div>,
+        </Div>
       ]}
     >
       <Div {...rest} testID={'TaskItem'} onPress={goToTaskDetails}>

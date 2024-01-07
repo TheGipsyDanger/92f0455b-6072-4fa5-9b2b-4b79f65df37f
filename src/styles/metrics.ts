@@ -9,5 +9,5 @@ export const metrics = {
   width,
   defaultSpace: (multiplier = 1) => normalize(8 * multiplier),
   header: isIphoneX() ? 44 + getStatusBarHeight() : 44,
-  normalize,
+  normalize
 };

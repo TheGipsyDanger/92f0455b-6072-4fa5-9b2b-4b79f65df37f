@@ -5,8 +5,8 @@ export const PermissionsSchema = {
   properties: {
     granted: 'string',
     status: 'string',
-    requested: 'string',
-  },
+    requested: 'string'
+  }
 };
 
 export type IPermissions = typeof PermissionsSchema.properties;

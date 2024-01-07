@@ -3,7 +3,7 @@ import {
   type ITrigger,
   type IHandlerSubmit,
   type IFormErros,
-  type ICreateTaskForm,
+  type ICreateTaskForm
 } from '~/utils';
 export namespace ICreateTask {
   export interface IModel {

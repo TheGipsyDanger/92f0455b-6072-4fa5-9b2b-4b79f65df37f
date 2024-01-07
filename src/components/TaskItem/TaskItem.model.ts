@@ -29,6 +29,6 @@ export const useTaskItem = ({id}: {id: string}): ITaskItem.IModel => {
     ref,
     pressChange,
     pressDelete,
-    goToTaskDetails,
+    goToTaskDetails
   };
 };

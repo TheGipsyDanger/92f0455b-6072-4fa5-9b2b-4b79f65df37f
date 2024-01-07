@@ -5,7 +5,7 @@ export enum AppRoutes {
   Main = 'Main',
   CreateTask = 'CreateTask',
   RequestPermissions = 'RequestPermissions',
-  TaskDetails = 'TaskDetails',
+  TaskDetails = 'TaskDetails'
 }
 
 export interface RootParamList {

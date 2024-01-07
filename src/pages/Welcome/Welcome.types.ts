@@ -3,7 +3,7 @@ import {
   type ITrigger,
   type IHandlerSubmit,
   type IFormErros,
-  type IWelcomeForm,
+  type IWelcomeForm
 } from '~/utils';
 export namespace IWelcome {
   export interface IModel {

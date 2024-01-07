@@ -14,6 +14,6 @@ export const useMain = (): IMain.IModel => {
     type: filter,
     tasks:
       filter === 'all' ? tasks : tasks.filter(task => task.status === 'open'),
-    goToCreateTask,
+    goToCreateTask
   };
 };

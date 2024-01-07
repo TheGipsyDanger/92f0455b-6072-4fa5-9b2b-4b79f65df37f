@@ -19,5 +19,5 @@ export default {
       status === 'done' ? theme.colors.green : theme.colors.yellow};
     border-top-left-radius: ${theme.raddi.medium}px;
     border-bottom-left-radius: ${theme.raddi.medium}px;
-  `,
+  `
 };

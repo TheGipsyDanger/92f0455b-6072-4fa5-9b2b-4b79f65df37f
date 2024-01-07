@@ -3,7 +3,7 @@ import {AppRoutes} from '~/routes/routeConfig';
 import {
   navigate,
   useRouterRealm,
-  useRequestPermissions as Permissions,
+  useRequestPermissions as Permissions
 } from '~/utils';
 
 export const useRequestPermissions = (): IRequestPermissions.IModel => {
@@ -29,6 +29,6 @@ export const useRequestPermissions = (): IRequestPermissions.IModel => {
     goToMain,
     requestAction,
     isFirstTime,
-    goToSettigs,
+    goToSettigs
   };
 };

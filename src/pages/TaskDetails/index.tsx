@@ -6,7 +6,7 @@ import {
   ScreenWithHeader,
   Text,
   Spacing,
-  Button,
+  Button
 } from '~/components';
 import {useTaskDetails} from '~/pages/TaskDetails/TaskDetails.model';
 import S from '~/pages/TaskDetails/TaskDetails.styles';

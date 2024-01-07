@@ -3,7 +3,7 @@ import {
   type FieldErrors,
   type UseFormTrigger,
   type UseFormHandleSubmit,
-  type FieldValues,
+  type FieldValues
 } from 'react-hook-form';
 
 import {type IWelcomeForm, type ICreateTaskForm} from '../formSchema';

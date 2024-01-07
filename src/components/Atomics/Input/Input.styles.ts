@@ -10,5 +10,5 @@ export default {
     ${border};
     ${boxShadow};
     color: #141313;
-  `,
+  `
 };

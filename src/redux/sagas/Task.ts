@@ -3,7 +3,7 @@ import {
   deleteTaskActions,
   changeStatusTaskActions,
   selectTaskActions,
-  createTaskActions,
+  createTaskActions
 } from '~/redux/actions';
 import {AppRoutes} from '~/routes/routeConfig';
 import {navigate, goBack} from '~/utils';
