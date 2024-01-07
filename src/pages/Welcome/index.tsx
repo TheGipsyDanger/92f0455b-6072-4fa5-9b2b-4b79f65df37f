@@ -6,7 +6,8 @@ import {
   Screen,
   Spacing,
   Button,
-  ScreenContent
+  ScreenContent,
+  Conditional
 } from '~/components';
 import {useWelcome} from '~/pages/Welcome/Welcome.model';
 import {Controller} from 'react-hook-form';
@@ -19,7 +20,7 @@ export const Welcome = () => {
       <ScreenContent mt={4}>
         <Div>
           <Spacing space={2}>
-            <Div mb={4}>
+            <Div testID="Welcome:title" mb={4}>
               <Text textAlign="center" font="bold" size="big">
                 Olá
               </Text>
@@ -33,7 +34,6 @@ export const Welcome = () => {
               defaultValue=""
               render={({field: {onChange, onBlur, value, name}}) => (
                 <FormInput
-                  autoFocus={true}
                   placeholder="ex: vanesso"
                   {...{onChange, onBlur, value, name, trigger, errors}}
                 />
@@ -41,13 +41,22 @@ export const Welcome = () => {
             />
           </Spacing>
         </Div>
-        <Button.Default
-          mb={4}
-          onPress={handleSubmit(onSubmit)}
-          variant={isValid ? 'primary' : 'disable'}
-          label="Continuar"
-          isLoading={isLoading}
-        />
+        <Conditional render={isValid}>
+          <Button.Default
+            mb={4}
+            onPress={handleSubmit(onSubmit)}
+            variant={'primary'}
+            label="Continuar"
+            isLoading={isLoading}
+          />
+          <Button.Default
+            mb={4}
+            onPress={handleSubmit(onSubmit)}
+            variant={'disable'}
+            label="Continuar"
+            isLoading={isLoading}
+          />
+        </Conditional>
       </ScreenContent>
     </Screen>
   );

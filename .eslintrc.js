@@ -34,5 +34,7 @@ module.exports = {
     '@typescript-eslint/space-before-function-paren': 'off',
     'generator-star-spacing': 'off',
     '@typescript-eslint/member-delimiter-style': 'off'
+    '@typescript-eslint/prefer-nullish-coalescing': 'off',
+    '@typescript-eslint/no-confusing-void-expression': 'off',
   }
 };
