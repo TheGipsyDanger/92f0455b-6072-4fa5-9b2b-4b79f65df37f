@@ -12,15 +12,5 @@ export const useUserRealm = () => {
     return realm.objects('User')[0];
   };
 
-  const remove = (id: string) => {
-    // const audioToDelete = realm
-    //   .objects('Audio')
-    //   .filtered(`podcastId = "${id}"`);
-    // realm.write(() => {
-    //   realm.delete(audioToDelete);
-    // });
-    // update();
-  };
-
-  return {create, get, remove};
+  return {create, get};
 };

@@ -37,7 +37,6 @@ function* selectTask(params: ReturnType<typeof selectTaskActions.request>) {
 
 function* createTask(params: ReturnType<typeof createTaskActions.request>) {
   try {
-    console.log('createTaskSaga: ', params);
     yield delay(2000);
     yield put(createTaskActions.success(params.payload));
     goBack();

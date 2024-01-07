@@ -21,8 +21,8 @@ const User = createSlice({
     createUser: state => {
       return {...state, isLoading: true};
     },
-    createUserSuccess: (state, {payload}: PayloadAction<{user: IUser}>) => {
-      return {...state, isLoading: false, user: payload.user};
+    createUserSuccess: (state, {payload}: PayloadAction<IUser>) => {
+      return {...state, isLoading: false, user: payload};
     },
     createUserFailure: state => {
       return {...state, isLoading: false};

@@ -7,7 +7,8 @@ import {
   useTaskState,
   useRequestPermissions,
   navigate,
-  useUploadFile
+  useUploadFile,
+  useTaskRealm
 } from '~/utils';
 import {useForm} from 'react-hook-form';
 import {createTaskSchema} from '~/utils/forms';
@@ -19,6 +20,7 @@ export const useCreateTask = (): ICreateTask.IModel => {
   const {create} = useTaskState();
   const {permissions} = useRequestPermissions();
   const {get} = useUploadFile();
+  const {create: createTaskRealm} = useTaskRealm();
 
   const {
     control,
@@ -30,7 +32,12 @@ export const useCreateTask = (): ICreateTask.IModel => {
   });
 
   const onSubmit = (params: ICreateTaskForm<string>) => {
-    create({...params, id: uuid.v4()} as ITask);
+    const task = {
+      ...params,
+      id: uuid.v4()
+    } as ITask;
+    createTaskRealm(task);
+    create(task);
   };
 
   const addFile = (onChange: any) => {

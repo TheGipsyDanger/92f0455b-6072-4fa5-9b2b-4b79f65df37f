@@ -1,4 +1,4 @@
-import {createAsyncAction} from 'typesafe-actions';
+import {createAsyncAction, createCustomAction} from 'typesafe-actions';
 import {type ITask} from '~/utils';
 
 interface IIDRequest extends Pick<ITask, 'id'> {}
@@ -26,3 +26,10 @@ export const selectTaskActions = createAsyncAction(
   'Tasks/selectTaskSuccess',
   'Tasks/selectTaskFailure'
 )<IIDRequest, IIDRequest, string>();
+
+export const setTasks = createCustomAction(
+  'Tasks/setTasks',
+  (tasks: ITask[]) => ({
+    payload: tasks
+  })
+);

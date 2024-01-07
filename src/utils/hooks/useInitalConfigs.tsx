@@ -6,8 +6,8 @@ import {
   Inter_700Bold
 } from '@expo-google-fonts/inter';
 import realm from '~/configs/realm';
-import {useAppDispatch} from '~/utils';
-import {setUser} from '~/redux/actions';
+import {useAppDispatch, type ITask} from '~/utils';
+import {setTasks, setUser} from '~/redux/actions';
 import {type IUser} from '../realm';
 
 export const useInitalConfigs = () => {
@@ -21,6 +21,8 @@ export const useInitalConfigs = () => {
 
   const loadAndSaveInfos = () => {
     const users: IUser[] = realm.objects('User') as unknown as IUser[];
+    const tasks: ITask[] = realm.objects('Tasks') as unknown as ITask[];
+    tasks.length > 0 && dispatch(setTasks(tasks));
     users.length > 0 && dispatch(setUser(users[0]));
   };
 

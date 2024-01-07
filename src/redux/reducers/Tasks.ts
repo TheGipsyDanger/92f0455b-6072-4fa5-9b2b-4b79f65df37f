@@ -1,6 +1,5 @@
 import {createSlice, type PayloadAction} from '@reduxjs/toolkit';
 import {type ITask} from '~/utils';
-import tasks from '../../../__mocks__/tasks.json';
 import {useMapUtils} from '~/utils/hooks/useMapUtils';
 
 interface ITasks {
@@ -12,7 +11,7 @@ interface ITasks {
 }
 
 const initialState: ITasks = {
-  tasks: tasks as ITask[],
+  tasks: [] as ITask[],
   selectedTask: {} as ITask,
   isLoading: false,
   createLoading: false,
@@ -23,6 +22,9 @@ const Tasks = createSlice({
   name: 'Tasks',
   initialState,
   reducers: {
+    setTasks: (state, {payload}: PayloadAction<ITask[]>) => {
+      return {...state, tasks: payload};
+    },
     createTask: state => {
       return {...state, createLoading: true};
     },

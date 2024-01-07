@@ -7,7 +7,7 @@ function* createUser(params: ReturnType<typeof userActions.request>) {
   try {
     yield delay(3000);
     yield put(userActions.success(params.payload));
-    yield delay(1000);
+    yield delay(600);
     navigate(AppRoutes.RequestPermissions);
   } catch (error) {
     yield put(userActions.failure(`${String(error)}`));

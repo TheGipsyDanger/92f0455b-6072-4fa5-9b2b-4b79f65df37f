@@ -6,4 +6,5 @@ export * from './useRouterRealm';
 export * from './useTaskState';
 export * from './useFileUtils';
 export * from './useUploadFile';
+export * from './useTaskRealm';
 // export factory

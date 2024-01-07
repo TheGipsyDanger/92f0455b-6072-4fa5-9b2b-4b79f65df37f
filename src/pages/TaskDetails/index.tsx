@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {Image} from 'react-native';
 import {
   Div,
   ScreenContent,
@@ -43,7 +44,6 @@ export const TaskDetails = () => {
                 >
                   <Div flex={1} mr={1}>
                     <Button.Default
-                      onPress={() => {}}
                       variant={
                         selectedTask.status === 'open' ? 'primary' : 'outline'
                       }
@@ -53,7 +53,6 @@ export const TaskDetails = () => {
                   </Div>
                   <Div flex={1} ml={1}>
                     <Button.Default
-                      onPress={() => {}}
                       variant={
                         selectedTask.status === 'done' ? 'primary' : 'outline'
                       }
@@ -63,13 +62,15 @@ export const TaskDetails = () => {
                   </Div>
                 </Div>
               </Div>
-              <Div>
-                <Button.Centralize
-                  variant="outline"
-                  label="adicionar arquivo"
-                  isLoading={false}
-                />
-              </Div>
+              {selectedTask.file && (
+                <Div>
+                  <Image
+                    resizeMode="contain"
+                    source={{uri: selectedTask.file}}
+                    style={{width: '100%', height: 200}}
+                  />
+                </Div>
+              )}
             </Spacing>
           </Div>
           <Div>
