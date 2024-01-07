@@ -48,10 +48,14 @@
         </dict>
       </dict>
     </dict>
+    <key>NSCameraUsageDescription</key>
+    <string>Allow $(PRODUCT_NAME) to access your camera</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>Allow $(PRODUCT_NAME) to access your microphone</string>
     <key>NSPhotoLibraryAddUsageDescription</key>
     <string>O $(PRODUCT_NAME) precisa salvar arquivos.</string>
     <key>NSPhotoLibraryUsageDescription</key>
-    <string>O $(PRODUCT_NAME) precisa de acesso a suas fotos.</string>
+    <string>O aplicativo acessa suas fotos para permitir que você as compartilhe com seus amigos.</string>
     <key>UILaunchStoryboardName</key>
     <string>SplashScreen</string>
     <key>UIRequiredDeviceCapabilities</key>

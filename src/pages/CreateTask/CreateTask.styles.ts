@@ -6,5 +6,11 @@ export default {
   Label: styled(Text).attrs({
     mb: 3,
     font: 'bold'
+  })``,
+  File: styled(Text).attrs({
+    my: 3,
+    textAlign: 'center',
+    color: 'grey',
+    font: 'bold'
   })``
 };

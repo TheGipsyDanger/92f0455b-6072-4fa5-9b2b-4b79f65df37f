@@ -11,6 +11,7 @@ import {
 import {useCreateTask} from '~/pages/CreateTask/CreateTask.model';
 import S from '~/pages/CreateTask/CreateTask.styles';
 import {Controller} from 'react-hook-form';
+import {useFileUtils} from '~/utils';
 
 export const CreateTask = () => {
   const {
@@ -23,6 +24,8 @@ export const CreateTask = () => {
     isLoading,
     addFile
   } = useCreateTask();
+
+  const {getExtensions} = useFileUtils();
 
   return (
     <Div flex={1} bg="white">
@@ -61,21 +64,27 @@ export const CreateTask = () => {
                   )}
                 />
               </Div>
-              <Div mb={3}>
+              <Div>
                 <S.Label>Adicionar arquivo*</S.Label>
                 <Controller
                   control={control}
                   name="file"
                   defaultValue=""
                   render={({field: {onChange, onBlur, value, name}}) => (
-                    <Button.Centralize
-                      onPress={() => {
-                        addFile(onChange);
-                      }}
-                      variant="outline"
-                      label="adicionar arquivo"
-                      isLoading={false}
-                    />
+                    <>
+                      <Button.Centralize
+                        onPress={() => {
+                          addFile(onChange);
+                        }}
+                        variant="outline"
+                        label={value ? 'trocar arquivo' : 'adicionar arquivo'}
+                        isLoading={false}
+                      />
+                      {value && (
+                        <S.File>{`file.${getExtensions(value)}`}</S.File>
+                      )}
+                      {!value && <Div mb={3} />}
+                    </>
                   )}
                 />
               </Div>

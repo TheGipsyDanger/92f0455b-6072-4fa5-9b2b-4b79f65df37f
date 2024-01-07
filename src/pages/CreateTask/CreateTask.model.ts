@@ -6,7 +6,8 @@ import {
   useAppSelector,
   useTaskState,
   useRequestPermissions,
-  navigate
+  navigate,
+  useUploadFile
 } from '~/utils';
 import {useForm} from 'react-hook-form';
 import {createTaskSchema} from '~/utils/forms';
@@ -17,6 +18,7 @@ export const useCreateTask = (): ICreateTask.IModel => {
   const isLoading = useAppSelector(state => state.Tasks.createLoading);
   const {create} = useTaskState();
   const {permissions} = useRequestPermissions();
+  const {get} = useUploadFile();
 
   const {
     control,
@@ -33,8 +35,7 @@ export const useCreateTask = (): ICreateTask.IModel => {
 
   const addFile = (onChange: any) => {
     if (!permissions?.granted) return goToRequestPermissions();
-    // if (!permissions?.granted) return goToRequestPermissions();
-    // console.log({onChange});
+    get(onChange);
   };
 
   const goToRequestPermissions = () =>
