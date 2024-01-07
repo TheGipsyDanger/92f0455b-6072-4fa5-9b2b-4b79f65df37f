@@ -21,8 +21,7 @@ const viewsNames = Object.keys(views);
 
 export default function Routes() {
   return (
-    // <Stack.Navigator initialRouteName={useDefineInitalRoute()}>
-    <Stack.Navigator initialRouteName={'Welcome'}>
+    <Stack.Navigator initialRouteName={useDefineInitalRoute()}>
       {viewsNames.map(viewName => (
         <Stack.Screen key={viewName} {...defineRoutesProps(viewName)} />
       ))}

@@ -12,13 +12,11 @@ export const Input = (props: IInput.IView) => {
     handleValue,
     handleChange,
     onBlur,
-    color = 'black',
     font = 'regular',
     size = 'xsmall',
     onChangeText,
     value,
     autoFocus = false,
-    editable = true,
     ...rest
   } = useInput(props);
   return (
