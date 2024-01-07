@@ -7,12 +7,10 @@ const exec = (): ISchema<ICreateTaskForm<string>, ICreateTaskForm<any>> => {
       .string()
       .trim()
       .required('Campo obrigatório')
-      .min(4, 'Nome muito curto'),
-    description: yup
-      .string()
-      .trim()
-      .required('Campo obrigatório')
-      .min(4, 'Nome muito curto'),
+      .min(4, 'Titulo muito curto'),
+    description: yup.string().trim().min(4, 'Descrição muito curta'),
+    status: yup.string().trim(),
+    file: yup.string().trim(),
   });
 };
 

@@ -7,8 +7,8 @@ export const ScreenContent = ({children, ...rest}: IScreenContent.IView) => (
     px={4}
     flex={1}
     justifyContent="space-between"
-    {...rest}
     testID={`ScreenContent`}
+    {...rest}
   >
     {children}
   </Div>

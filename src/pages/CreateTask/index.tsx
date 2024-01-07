@@ -24,69 +24,77 @@ export const CreateTask = (props: ICreateTask.IView) => {
         <ScreenContent>
           <Div>
             <Spacing space={2}>
-              <Controller
-                control={control}
-                name="title"
-                defaultValue=""
-                render={({field: {onChange, onBlur, value, name}}) => (
-                  <FormInput
-                    label={<S.Label>Nome</S.Label>}
-                    autoFocus={true}
-                    placeholder="Fazer compras"
-                    {...{onChange, onBlur, value, name, trigger, errors}}
-                  />
-                )}
-              />
-              <Controller
-                control={control}
-                name="description"
-                defaultValue=""
-                render={({field: {onChange, onBlur, value, name}}) => (
-                  <FormInput
-                    label={<S.Label>Descrição</S.Label>}
-                    autoFocus={false}
-                    placeholder="Compras no mercado"
-                    {...{onChange, onBlur, value, name, trigger, errors}}
-                  />
-                )}
-              />
-              <Controller
-                control={control}
-                name="status"
-                defaultValue="open"
-                render={({field: {onChange, onBlur, value, name}}) => (
-                  <Div mb={4}>
-                    <S.Label>E como ela está?</S.Label>
-                    <Div
-                      flexDirection="row"
-                      justifyContent="space-between"
-                      flex={1}
-                    >
-                      <Div flex={1} mr={1}>
-                        <Button.Default
-                          onPress={() => onChange('open')}
-                          variant={value !== 'done' ? 'primary' : 'outline'}
-                          label="fazer"
-                          isLoading={false}
-                        />
-                      </Div>
-                      <Div flex={1} ml={1}>
-                        <Button.Default
-                          onPress={() => onChange('done')}
-                          variant={value === 'done' ? 'primary' : 'outline'}
-                          label="feito"
-                          isLoading={false}
-                        />
+              <Div>
+                <Controller
+                  control={control}
+                  name="title"
+                  defaultValue=""
+                  render={({field: {onChange, onBlur, value, name}}) => (
+                    <FormInput
+                      label={<S.Label>Nome</S.Label>}
+                      autoFocus={true}
+                      placeholder="Fazer compras"
+                      {...{onChange, onBlur, value, name, trigger, errors}}
+                    />
+                  )}
+                />
+              </Div>
+              <Div>
+                <Controller
+                  control={control}
+                  name="description"
+                  defaultValue=""
+                  render={({field: {onChange, onBlur, value, name}}) => (
+                    <FormInput
+                      label={<S.Label>Descrição</S.Label>}
+                      autoFocus={false}
+                      placeholder="Compras no mercado"
+                      {...{onChange, onBlur, value, name, trigger, errors}}
+                    />
+                  )}
+                />
+              </Div>
+              <Div mb={4}>
+                <Button.Centralize
+                  variant="outline"
+                  label="adicionar arquivo"
+                  isLoading={false}
+                />
+              </Div>
+              <Div>
+                <Controller
+                  control={control}
+                  name="status"
+                  defaultValue="open"
+                  render={({field: {onChange, value}}) => (
+                    <Div mb={4}>
+                      <S.Label>E como ela está?</S.Label>
+                      <Div
+                        flexDirection="row"
+                        justifyContent="space-between"
+                        flex={1}
+                      >
+                        <Div flex={1} mr={1}>
+                          <Button.Default
+                            onPress={() => onChange('open')}
+                            variant={value !== 'done' ? 'primary' : 'outline'}
+                            label="fazer"
+                            isLoading={false}
+                          />
+                        </Div>
+                        <Div flex={1} ml={1}>
+                          <Button.Default
+                            onPress={() => onChange('done')}
+                            variant={value === 'done' ? 'primary' : 'outline'}
+                            label="feito"
+                            isLoading={false}
+                          />
+                        </Div>
                       </Div>
                     </Div>
-                  </Div>
-                )}
-              />
-              <Button.Centralize
-                variant="outline"
-                label="adicionar arquivo"
-                isLoading={false}
-              />
+                  )}
+                />
+              </Div>
             </Spacing>
           </Div>
           <Button.Default
