@@ -26,13 +26,11 @@ export const FormInput = ({
         {prepend != null && <Div ml={3}>{prepend}</Div>}
         <S.Content flex={1}>
           <Input
+            testID="FormInput:Input"
             autoFocus={autoFocus}
             placeholder={placeholder}
             value={value}
             onBlur={onBlur}
-            onChange={(text: string) => {
-              console.log({text});
-            }}
             onChangeText={(text: string) => {
               onChange(text);
               // @ts-expect-error
@@ -43,8 +41,8 @@ export const FormInput = ({
         </S.Content>
         {append != null && <Div mr={3}>{append}</Div>}
       </S.Container>
-      <Text mt={1} color="red">
-        {errors?.[name]?.message != null || ''}
+      <Text mt={1} testID="FormInput:Error" color="red">
+        {errors?.[name]?.message ? errors?.[name]?.message : ''}
       </Text>
     </Div>
   );
