@@ -2,12 +2,17 @@ import {type IRequestPermissions} from '~/pages/RequestPermissions/RequestPermis
 import {AppRoutes} from '~/routes/routeConfig';
 import {
   navigate,
+  goBack,
   useRouterRealm,
   useRequestPermissions as Permissions
 } from '~/utils';
+import {useRoute} from '@react-navigation/native';
 
 export const useRequestPermissions = (): IRequestPermissions.IModel => {
   const {set} = useRouterRealm();
+  const route = useRoute();
+
+  const whereParam = route.params?.where || '';
 
   const goToMain = () => {
     set({initialRouter: AppRoutes.Main});
@@ -29,6 +34,8 @@ export const useRequestPermissions = (): IRequestPermissions.IModel => {
     goToMain,
     requestAction,
     isFirstTime,
-    goToSettigs
+    goToSettigs,
+    whereParam,
+    goBack
   };
 };

@@ -14,5 +14,6 @@ export namespace ICreateTask {
     onSubmit: (data: ICreateTaskForm<string>) => void;
     isValid: boolean;
     isLoading: boolean;
+    addFile: (onChange: any) => void;
   }
 }

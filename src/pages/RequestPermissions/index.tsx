@@ -1,11 +1,25 @@
 import * as React from 'react';
-import {Button, Div, Screen, ScreenContent, Spacing, Text} from '~/components';
-import {type IRequestPermissions} from '~/pages/RequestPermissions/RequestPermissions.types';
+import {
+  Button,
+  Conditional,
+  Div,
+  Screen,
+  ScreenContent,
+  Spacing,
+  Text
+} from '~/components';
 import {useRequestPermissions} from '~/pages/RequestPermissions/RequestPermissions.model';
 
-export const RequestPermissions = (props: IRequestPermissions.IView) => {
-  const {goToMain, requestAction, goToSettigs, isFirstTime} =
-    useRequestPermissions();
+export const RequestPermissions = () => {
+  const {
+    goToMain,
+    requestAction,
+    goToSettigs,
+    isFirstTime,
+    whereParam,
+    goBack
+  } = useRequestPermissions();
+
   return (
     <Screen flex={1} testID={'Welcome'}>
       <ScreenContent mt={4}>
@@ -35,12 +49,20 @@ export const RequestPermissions = (props: IRequestPermissions.IView) => {
               variant="primary"
               onPress={isFirstTime ? requestAction : goToSettigs}
             />
-            <Button.Default
-              isLoading={false}
-              label="Deixar para depois"
-              variant="link"
-              onPress={goToMain}
-            />
+            <Conditional render={Boolean(whereParam)}>
+              <Button.Default
+                isLoading={false}
+                label="Voltar"
+                variant="link"
+                onPress={goBack}
+              />
+              <Button.Default
+                isLoading={false}
+                label="Deixar para depois"
+                variant="link"
+                onPress={goToMain}
+              />
+            </Conditional>
           </Spacing>
         </Div>
       </ScreenContent>

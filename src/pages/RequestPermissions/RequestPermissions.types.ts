@@ -4,5 +4,7 @@ export namespace IRequestPermissions {
     requestAction: () => Promise<void>;
     isFirstTime: boolean;
     goToSettigs: () => void;
+    goBack: () => void;
+    whereParam: string;
   }
 }

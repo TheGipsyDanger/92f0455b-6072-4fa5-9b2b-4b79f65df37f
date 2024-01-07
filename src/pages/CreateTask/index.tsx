@@ -8,14 +8,21 @@ import {
   Header,
   ScreenWithHeader
 } from '~/components';
-import {type ICreateTask} from '~/pages/CreateTask/CreateTask.types';
 import {useCreateTask} from '~/pages/CreateTask/CreateTask.model';
 import S from '~/pages/CreateTask/CreateTask.styles';
 import {Controller} from 'react-hook-form';
 
-export const CreateTask = (props: ICreateTask.IView) => {
-  const {control, trigger, errors, isValid, onSubmit, handleSubmit, isLoading} =
-    useCreateTask();
+export const CreateTask = () => {
+  const {
+    control,
+    trigger,
+    errors,
+    isValid,
+    onSubmit,
+    handleSubmit,
+    isLoading,
+    addFile
+  } = useCreateTask();
 
   return (
     <Div flex={1} bg="white">
@@ -63,7 +70,7 @@ export const CreateTask = (props: ICreateTask.IView) => {
                   render={({field: {onChange, onBlur, value, name}}) => (
                     <Button.Centralize
                       onPress={() => {
-                        onChange('file:///renanzin');
+                        addFile(onChange);
                       }}
                       variant="outline"
                       label="adicionar arquivo"

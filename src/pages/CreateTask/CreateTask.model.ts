@@ -4,15 +4,19 @@ import {
   type ICreateTaskForm,
   type ITask,
   useAppSelector,
-  useTaskState
+  useTaskState,
+  useRequestPermissions,
+  navigate
 } from '~/utils';
 import {useForm} from 'react-hook-form';
 import {createTaskSchema} from '~/utils/forms';
 import uuid from 'react-native-uuid';
+import {AppRoutes} from '~/routes/routeConfig';
 
 export const useCreateTask = (): ICreateTask.IModel => {
   const isLoading = useAppSelector(state => state.Tasks.createLoading);
   const {create} = useTaskState();
+  const {permissions} = useRequestPermissions();
 
   const {
     control,
@@ -27,6 +31,15 @@ export const useCreateTask = (): ICreateTask.IModel => {
     create({...params, id: uuid.v4()} as ITask);
   };
 
+  const addFile = (onChange: any) => {
+    if (!permissions?.granted) return goToRequestPermissions();
+    // if (!permissions?.granted) return goToRequestPermissions();
+    // console.log({onChange});
+  };
+
+  const goToRequestPermissions = () =>
+    navigate(AppRoutes.RequestPermissions, {where: 'CreateTask'});
+
   return {
     control,
     onSubmit,
@@ -34,6 +47,7 @@ export const useCreateTask = (): ICreateTask.IModel => {
     errors,
     trigger,
     isValid,
-    isLoading
+    isLoading,
+    addFile
   };
 };

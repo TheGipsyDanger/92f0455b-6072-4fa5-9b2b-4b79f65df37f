@@ -12,7 +12,9 @@ export interface RootParamList {
   [AppRoutes.Main]: undefined;
   [AppRoutes.Welcome]: undefined;
   [AppRoutes.CreateTask]: undefined;
-  [AppRoutes.RequestPermissions]: undefined;
+  [AppRoutes.RequestPermissions]: {
+    where?: string;
+  };
   [AppRoutes.TaskDetails]: undefined;
 }
 
