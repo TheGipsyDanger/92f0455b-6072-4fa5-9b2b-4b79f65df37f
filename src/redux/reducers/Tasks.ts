@@ -5,11 +5,13 @@ import {useMapUtils} from '~/utils/hooks/useMapUtils';
 
 interface ITasks {
   tasks: ITask[];
+  selectedTask: ITask;
   isLoading: boolean;
 }
 
 const initialState: ITasks = {
   tasks: tasks as ITask[],
+  selectedTask: {} as ITask,
   isLoading: false,
 };
 
@@ -17,6 +19,19 @@ const Tasks = createSlice({
   name: 'Tasks',
   initialState,
   reducers: {
+    selectTask: state => {
+      return {...state, isLoading: true};
+    },
+    selectTaskSuccess: (state, {payload}: PayloadAction<{id: string}>) => {
+      return {
+        ...state,
+        isLoading: false,
+        selectedTask: state.tasks.filter(task => task.id === payload.id)[0],
+      };
+    },
+    selectTaskFailure: state => {
+      return {...state, isLoading: false};
+    },
     deleteTask: state => {
       return {...state, isLoading: true};
     },
@@ -34,7 +49,6 @@ const Tasks = createSlice({
       return {...state, isLoading: true};
     },
     changeStatusSuccess: (state, {payload}: PayloadAction<{id: string}>) => {
-      console.log('changeStatusSuccess');
       const {toMap, toArray} = useMapUtils();
       const mapTasks = toMap(state.tasks);
 

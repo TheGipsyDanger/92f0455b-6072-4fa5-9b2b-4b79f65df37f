@@ -5,6 +5,7 @@ export enum AppRoutes {
   Main = 'Main',
   CreateTask = 'CreateTask',
   RequestPermissions = 'RequestPermissions',
+  TaskDetails = 'TaskDetails',
 }
 
 export type RootParamList = {
@@ -12,6 +13,7 @@ export type RootParamList = {
   [AppRoutes.Welcome]: undefined;
   [AppRoutes.CreateTask]: undefined;
   [AppRoutes.RequestPermissions]: undefined;
+  [AppRoutes.TaskDetails]: undefined;
 };
 
 export const AppRouteNames = Object.keys(

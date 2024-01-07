@@ -1,24 +1,23 @@
+import {ScrollView} from 'react-native';
 import styled from 'styled-components/native';
-import {Div} from '../Atomics';
-import {theme} from '~/styles/theme';
+import {Text, Div} from '~/components';
+import {theme} from '~/styles';
 
 export default {
+  Label: styled(Text).attrs({
+    mb: 3,
+    font: 'bold',
+  })``,
   Container: styled(Div).attrs({
-    height: 55,
     borderWidth: 1,
+    p: 3,
   })`
+    min-height: 55px;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     border-radius: ${theme.raddi.medium}px;
     background-color: ${theme.colors.white};
-  `,
-  Content: styled(Div).attrs({
-    height: 55,
-    px: 3,
-  })`
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+    border-color: ${theme.colors.grey};
   `,
 };

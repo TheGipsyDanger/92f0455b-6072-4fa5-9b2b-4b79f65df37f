@@ -12,26 +12,26 @@ export const TaskItem = ({
   file,
   ...rest
 }: ITaskItem.IView) => {
-  const {pressChange, pressDelete, ref} = useTaskItem();
+  const {pressChange, pressDelete, goToTaskDetails, ref} = useTaskItem({id});
   return (
     <S.Container
       ref={ref}
       rightButtons={[
         <Div>
           <Conditional render={status === 'done'}>
-            <Div onPress={() => pressChange(id)}>
+            <Div onPress={pressChange}>
               <Div height="100%" center width={75}>
                 <Icon name="back" size={26} color="primary" />
               </Div>
             </Div>
-            <Div onPress={() => pressChange(id)}>
+            <Div onPress={pressChange}>
               <Div height="100%" center width={75}>
                 <Icon name="checksquare" size={26} color="green" />
               </Div>
             </Div>
           </Conditional>
         </Div>,
-        <Div onPress={() => pressDelete(id)}>
+        <Div onPress={pressDelete}>
           <Div height="100%" center width={75}>
             <Icon
               lib="MaterialCommunityIcons"
@@ -43,7 +43,7 @@ export const TaskItem = ({
         </Div>,
       ]}
     >
-      <Div {...rest} testID={`TaskItem`}>
+      <Div {...rest} testID={`TaskItem`} onPress={goToTaskDetails}>
         <S.Content>
           <Div flexDirection="row">
             <S.Status status={status} />

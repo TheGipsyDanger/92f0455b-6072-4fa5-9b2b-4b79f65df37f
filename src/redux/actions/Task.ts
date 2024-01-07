@@ -14,3 +14,9 @@ export const changeStatusTaskActions = createAsyncAction(
   'Tasks/changeStatusSuccess',
   'Tasks/changeStatusFailure'
 )<IIDRequest, IIDRequest, string>();
+
+export const selectTaskActions = createAsyncAction(
+  'Tasks/selectTask',
+  'Tasks/selectTaskSuccess',
+  'Tasks/selectTaskFailure'
+)<IIDRequest, IIDRequest, string>();
