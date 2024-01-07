@@ -3,7 +3,7 @@ import {
   useFonts,
   Inter_400Regular,
   Inter_300Light,
-  Inter_700Bold
+  Inter_700Bold,
 } from '@expo-google-fonts/inter';
 import realm from '~/configs/realm';
 import {useAppDispatch} from '~/utils';
@@ -16,7 +16,7 @@ export const useInitalConfigs = () => {
   const [fontsLoaded] = useFonts({
     Inter_400Regular,
     Inter_300Light,
-    Inter_700Bold
+    Inter_700Bold,
   });
 
   const loadAndSaveInfos = () => {
@@ -32,6 +32,6 @@ export const useInitalConfigs = () => {
   }, [fontsLoaded]);
 
   return {
-    isLoading
+    isLoading,
   };
 };

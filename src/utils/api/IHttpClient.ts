@@ -1,15 +1,15 @@
 export interface HttpRequest {
-  url: string
-  method: HttpMethod
-  body?: any
-  headers?: any
+  url: string;
+  method: HttpMethod;
+  body?: any;
+  headers?: any;
 }
 
 export interface HttpClient<R = any> {
-  request: (data: HttpRequest) => Promise<HttpResponse<R>>
+  request: (data: HttpRequest) => Promise<HttpResponse<R>>;
 }
 
-export type HttpMethod = 'post' | 'get' | 'put' | 'delete'
+export type HttpMethod = 'post' | 'get' | 'put' | 'delete';
 
 export enum HttpStatusCode {
   ok = 200,
@@ -22,7 +22,7 @@ export enum HttpStatusCode {
 }
 
 export interface HttpResponse<T = any> {
-  message: string
-  statusCode: HttpStatusCode
-  data: T
+  message: string;
+  statusCode: HttpStatusCode;
+  data: T;
 }

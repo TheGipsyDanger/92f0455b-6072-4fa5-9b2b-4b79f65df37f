@@ -1,26 +1,30 @@
-import { type HttpRequest, type HttpResponse, type HttpClient } from '~/utils/api'
+import {
+  type HttpRequest,
+  type HttpResponse,
+  type HttpClient,
+} from '~/utils/api';
 
-import axios, { type AxiosResponse } from 'axios'
+import axios, {type AxiosResponse} from 'axios';
 
 export class AxiosHttpClientDefault implements HttpClient {
-  async request (data: HttpRequest): Promise<HttpResponse> {
-    let axiosResponse: AxiosResponse
+  async request(data: HttpRequest): Promise<HttpResponse> {
+    let axiosResponse: AxiosResponse;
     try {
       axiosResponse = await axios.request({
         url: data.url,
         method: data.method,
         data: data.body,
-        headers: data.headers
-      })
+        headers: data.headers,
+      });
     } catch (error: any) {
-      axiosResponse = error.response
+      axiosResponse = error.response;
     }
     return {
       statusCode: axiosResponse.status,
       data: axiosResponse.data,
-      message: ''
-    }
+      message: '',
+    };
   }
 }
 
-export const AxiosHttpClient = new AxiosHttpClientDefault()
+export const AxiosHttpClient = new AxiosHttpClientDefault();

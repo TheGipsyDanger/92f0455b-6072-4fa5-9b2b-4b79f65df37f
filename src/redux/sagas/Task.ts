@@ -3,12 +3,12 @@ import {
   deleteTaskActions,
   changeStatusTaskActions,
   selectTaskActions,
-  createTaskActions
+  createTaskActions,
 } from '~/redux/actions';
 import {AppRoutes} from '~/routes/routeConfig';
 import {navigate, goBack} from '~/utils';
 
-function * deleteTask (params: ReturnType<typeof deleteTaskActions.request>) {
+function* deleteTask(params: ReturnType<typeof deleteTaskActions.request>) {
   try {
     yield put(deleteTaskActions.success(params.payload));
   } catch (error) {
@@ -16,7 +16,7 @@ function * deleteTask (params: ReturnType<typeof deleteTaskActions.request>) {
   }
 }
 
-function * changeStatusTask (
+function* changeStatusTask(
   params: ReturnType<typeof changeStatusTaskActions.request>
 ) {
   try {
@@ -26,7 +26,7 @@ function * changeStatusTask (
   }
 }
 
-function * selectTask (params: ReturnType<typeof selectTaskActions.request>) {
+function* selectTask(params: ReturnType<typeof selectTaskActions.request>) {
   try {
     yield put(selectTaskActions.success(params.payload));
     navigate(AppRoutes.TaskDetails);
@@ -35,7 +35,7 @@ function * selectTask (params: ReturnType<typeof selectTaskActions.request>) {
   }
 }
 
-function * createTask (params: ReturnType<typeof createTaskActions.request>) {
+function* createTask(params: ReturnType<typeof createTaskActions.request>) {
   try {
     console.log('createTaskSaga: ', params);
     yield delay(2000);
@@ -46,13 +46,13 @@ function * createTask (params: ReturnType<typeof createTaskActions.request>) {
   }
 }
 
-function * watchTasksRequests () {
+function* watchTasksRequests() {
   yield takeLatest(deleteTaskActions.request, deleteTask);
   yield takeLatest(changeStatusTaskActions.request, changeStatusTask);
   yield takeLatest(selectTaskActions.request, selectTask);
   yield takeLatest(createTaskActions.request, createTask);
 }
 
-export default function * root (): Generator {
+export default function* root(): Generator {
   yield all([watchTasksRequests()]);
 }

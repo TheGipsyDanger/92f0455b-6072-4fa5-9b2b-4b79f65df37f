@@ -1,4 +1,4 @@
 export default interface ISpacing {
-  children: React.ReactNode
-  space: number
+  children: React.ReactNode;
+  space: number;
 }

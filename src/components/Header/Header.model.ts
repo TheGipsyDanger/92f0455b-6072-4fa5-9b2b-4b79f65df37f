@@ -19,6 +19,6 @@ export const useHeader = (): IHeader.IModel => {
     action,
     type,
     goBack,
-    name: name !== '' ? name?.split(' ')[0] : ''
+    name: name !== '' ? name?.split(' ')[0] : '',
   };
 };

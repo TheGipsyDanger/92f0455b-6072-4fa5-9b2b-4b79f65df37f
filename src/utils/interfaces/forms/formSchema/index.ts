@@ -1,10 +1,10 @@
 export interface IWelcomeForm<T> {
-  name: T
+  name: T;
 }
 
 export interface ICreateTaskForm<T> {
-  title: T
-  description: T
-  status: T
-  file: T
+  title: T;
+  description: T;
+  status: T;
+  file: T;
 }

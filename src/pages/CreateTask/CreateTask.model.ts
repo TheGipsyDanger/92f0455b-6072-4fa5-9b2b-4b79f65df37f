@@ -4,7 +4,7 @@ import {
   type ICreateTaskForm,
   type ITask,
   useAppSelector,
-  useTaskState
+  useTaskState,
 } from '~/utils';
 import {useForm} from 'react-hook-form';
 import {createTaskSchema} from '~/utils/forms';
@@ -18,9 +18,9 @@ export const useCreateTask = (): ICreateTask.IModel => {
     control,
     trigger,
     handleSubmit,
-    formState: {errors, isValid}
+    formState: {errors, isValid},
   } = useForm({
-    resolver: yupResolver(createTaskSchema)
+    resolver: yupResolver(createTaskSchema),
   });
 
   const onSubmit = (params: ICreateTaskForm<string>) => {
@@ -34,6 +34,6 @@ export const useCreateTask = (): ICreateTask.IModel => {
     errors,
     trigger,
     isValid,
-    isLoading
+    isLoading,
   };
 };

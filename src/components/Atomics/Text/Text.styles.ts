@@ -29,5 +29,5 @@ export default {
 
     font-size: ${({size}: {size: keyof IFontSizes}) =>
       Number(theme.fontSizes[size])}px;
-  `
+  `,
 };

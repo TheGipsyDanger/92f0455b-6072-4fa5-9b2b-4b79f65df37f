@@ -1,33 +1,33 @@
-import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
-import { type IUser } from '~/utils'
+import {createSlice, type PayloadAction} from '@reduxjs/toolkit';
+import {type IUser} from '~/utils';
 
 interface IUserState {
-  user: IUser
-  isLoading: boolean
+  user: IUser;
+  isLoading: boolean;
 }
 
 const initialState: IUserState = {
   user: {} as IUser,
-  isLoading: false
-}
+  isLoading: false,
+};
 
 const User = createSlice({
   name: 'User',
   initialState,
   reducers: {
-    setUser: (state, { payload }: PayloadAction<{ user: IUser }>) => {
-      return { ...state, isLoading: false, user: payload.user }
+    setUser: (state, {payload}: PayloadAction<{user: IUser}>) => {
+      return {...state, isLoading: false, user: payload.user};
     },
     createUser: state => {
-      return { ...state, isLoading: true }
+      return {...state, isLoading: true};
     },
-    createUserSuccess: (state, { payload }: PayloadAction<{ user: IUser }>) => {
-      return { ...state, isLoading: false, user: payload.user }
+    createUserSuccess: (state, {payload}: PayloadAction<{user: IUser}>) => {
+      return {...state, isLoading: false, user: payload.user};
     },
     createUserFailure: state => {
-      return { ...state, isLoading: false }
-    }
-  }
-})
+      return {...state, isLoading: false};
+    },
+  },
+});
 
-export default User.reducer
+export default User.reducer;

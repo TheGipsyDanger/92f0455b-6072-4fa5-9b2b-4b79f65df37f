@@ -6,7 +6,7 @@ import {
   Screen,
   Spacing,
   Button,
-  ScreenContent
+  ScreenContent,
 } from '~/components';
 import {useWelcome} from '~/pages/Welcome/Welcome.model';
 import {Controller} from 'react-hook-form';

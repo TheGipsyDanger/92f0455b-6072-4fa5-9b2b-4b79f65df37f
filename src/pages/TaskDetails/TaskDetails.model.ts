@@ -1,9 +1,9 @@
-import { type ITaskDetails } from '~/pages/TaskDetails/TaskDetails.types'
-import { useAppSelector } from '~/utils'
+import {type ITaskDetails} from '~/pages/TaskDetails/TaskDetails.types';
+import {useAppSelector} from '~/utils';
 
 export const useTaskDetails = (): ITaskDetails.IModel => {
-  const selectedTask = useAppSelector(state => state.Tasks.selectedTask)
+  const selectedTask = useAppSelector(state => state.Tasks.selectedTask);
   return {
-    selectedTask
-  }
-}
+    selectedTask,
+  };
+};

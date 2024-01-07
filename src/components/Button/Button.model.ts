@@ -1,5 +1,5 @@
-import { type IButton } from '~/components/Button/Button.types'
+import {type IButton} from '~/components/Button/Button.types';
 
 export const useButton = (props: IButton.IModelProps): IButton.IModel => {
-  return {}
-}
+  return {};
+};

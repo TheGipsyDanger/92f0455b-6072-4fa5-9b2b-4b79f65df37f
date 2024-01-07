@@ -1,11 +1,11 @@
-import * as React from 'react'
-import { Button, Div, Screen, ScreenContent, Spacing, Text } from '~/components'
-import { type IRequestPermissions } from '~/pages/RequestPermissions/RequestPermissions.types'
-import { useRequestPermissions } from '~/pages/RequestPermissions/RequestPermissions.model'
+import * as React from 'react';
+import {Button, Div, Screen, ScreenContent, Spacing, Text} from '~/components';
+import {type IRequestPermissions} from '~/pages/RequestPermissions/RequestPermissions.types';
+import {useRequestPermissions} from '~/pages/RequestPermissions/RequestPermissions.model';
 
 export const RequestPermissions = (props: IRequestPermissions.IView) => {
-  const { goToMain, requestAction, goToSettigs, isFirstTime } =
-    useRequestPermissions()
+  const {goToMain, requestAction, goToSettigs, isFirstTime} =
+    useRequestPermissions();
   return (
     <Screen flex={1} testID={'Welcome'}>
       <ScreenContent mt={4}>
@@ -15,7 +15,9 @@ export const RequestPermissions = (props: IRequestPermissions.IView) => {
               Melhor experiência
             </Text>
             <Text textAlign="center" font="light" size="xbig">
-              {'Para experiência completa, precisamos do acesso a seus arquivos.'}
+              {
+                'Para experiência completa, precisamos do acesso a seus arquivos.'
+              }
             </Text>
             <Div>
               <Spacing space={2}>
@@ -43,5 +45,5 @@ export const RequestPermissions = (props: IRequestPermissions.IView) => {
         </Div>
       </ScreenContent>
     </Screen>
-  )
-}
+  );
+};

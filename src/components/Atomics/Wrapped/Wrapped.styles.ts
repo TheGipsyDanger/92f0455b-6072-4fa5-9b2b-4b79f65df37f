@@ -10,7 +10,7 @@ import {
   typography,
   backgroundColor,
   position,
-  borderColor
+  borderColor,
 } from 'styled-system';
 
 export default {
@@ -46,5 +46,5 @@ export default {
         align-items: center;
         justify-content: center;
       `}
-  `
+  `,
 };

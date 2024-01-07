@@ -1,11 +1,11 @@
-import * as React from 'react'
-import { Div, Icon } from '~/components/Atomics'
-import { type IHeader } from './Header.types'
-import { useHeader } from './Header.model'
-import S from './Header.styles'
+import * as React from 'react';
+import {Div, Icon} from '~/components/Atomics';
+import {type IHeader} from './Header.types';
+import {useHeader} from './Header.model';
+import S from './Header.styles';
 
-export const WithBack = ({ label = 'Header' }: IHeader.IView) => {
-  const { top, goBack } = useHeader()
+export const WithBack = ({label = 'Header'}: IHeader.IView) => {
+  const {top, goBack} = useHeader();
   return (
     <Div testID={'Header'}>
       <Div height={top}></Div>
@@ -21,5 +21,5 @@ export const WithBack = ({ label = 'Header' }: IHeader.IView) => {
         </Div>
       </Div>
     </Div>
-  )
-}
+  );
+};

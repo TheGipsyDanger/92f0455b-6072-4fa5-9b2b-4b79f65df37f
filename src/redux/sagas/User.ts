@@ -3,7 +3,7 @@ import {userActions} from '~/redux/actions';
 import {navigate} from '~/utils';
 import {AppRoutes} from '~/routes/routeConfig';
 
-function * createUser (params: ReturnType<typeof userActions.request>) {
+function* createUser(params: ReturnType<typeof userActions.request>) {
   try {
     yield delay(3000);
     yield put(userActions.success(params.payload));
@@ -14,10 +14,10 @@ function * createUser (params: ReturnType<typeof userActions.request>) {
   }
 }
 
-function * watchUsersRequests () {
+function* watchUsersRequests() {
   yield takeLatest(userActions.request, createUser);
 }
 
-export default function * root (): Generator {
+export default function* root(): Generator {
   yield all([watchUsersRequests()]);
 }

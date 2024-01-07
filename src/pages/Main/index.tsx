@@ -36,7 +36,7 @@ export const Main = () => {
           )}
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{
-            paddingBottom: theme.space[6]
+            paddingBottom: theme.space[6],
           }}
           data={tasks}
           extraData={tasks}

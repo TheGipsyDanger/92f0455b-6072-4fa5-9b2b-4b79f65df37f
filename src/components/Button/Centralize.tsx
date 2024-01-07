@@ -1,8 +1,8 @@
-import * as React from 'react'
-import { Div, Conditional, Icon } from '~/components/Atomics'
-import { ActivityIndicator } from 'react-native'
-import { type IButton } from './Button.types'
-import S from './Button.styles'
+import * as React from 'react';
+import {Div, Conditional, Icon} from '~/components/Atomics';
+import {ActivityIndicator} from 'react-native';
+import {type IButton} from './Button.types';
+import S from './Button.styles';
 
 export const Centralize = ({
   onPress,
@@ -27,5 +27,5 @@ export const Centralize = ({
         </Conditional>
       </S.Container>
     </Div>
-  )
-}
+  );
+};

@@ -6,7 +6,7 @@ import {
   Button,
   ScreenContent,
   Header,
-  ScreenWithHeader
+  ScreenWithHeader,
 } from '~/components';
 import {type ICreateTask} from '~/pages/CreateTask/CreateTask.types';
 import {useCreateTask} from '~/pages/CreateTask/CreateTask.model';

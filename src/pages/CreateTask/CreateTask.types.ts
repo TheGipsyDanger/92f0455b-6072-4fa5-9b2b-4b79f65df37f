@@ -3,16 +3,16 @@ import {
   type ITrigger,
   type IHandlerSubmit,
   type IFormErros,
-  type ICreateTaskForm
+  type ICreateTaskForm,
 } from '~/utils';
 export namespace ICreateTask {
   export interface IModel {
-    control: IControl<ICreateTaskForm<string>>
-    trigger: ITrigger<ICreateTaskForm<string>>
-    handleSubmit: IHandlerSubmit<ICreateTaskForm<string>>
-    errors: IFormErros<ICreateTaskForm<string>>
-    onSubmit: (data: ICreateTaskForm<string>) => void
-    isValid: boolean
-    isLoading: boolean
+    control: IControl<ICreateTaskForm<string>>;
+    trigger: ITrigger<ICreateTaskForm<string>>;
+    handleSubmit: IHandlerSubmit<ICreateTaskForm<string>>;
+    errors: IFormErros<ICreateTaskForm<string>>;
+    onSubmit: (data: ICreateTaskForm<string>) => void;
+    isValid: boolean;
+    isLoading: boolean;
   }
 }

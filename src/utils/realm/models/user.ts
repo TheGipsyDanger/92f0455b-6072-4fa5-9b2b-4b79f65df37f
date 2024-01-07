@@ -3,8 +3,8 @@
 export const UserSchema = {
   name: 'User',
   properties: {
-    name: 'string'
-  }
-}
+    name: 'string',
+  },
+};
 
-export type IUser = typeof UserSchema.properties
+export type IUser = typeof UserSchema.properties;
