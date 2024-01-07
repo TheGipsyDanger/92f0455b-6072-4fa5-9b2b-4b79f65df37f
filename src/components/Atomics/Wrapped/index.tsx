@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {TouchableOpacity} from 'react-native';
-import {IWrapped} from '~/components/Atomics/Wrapped/Wrapped.types'
+import {IWrapped} from '~/components/Atomics/Wrapped/Wrapped.types';
 import S from '~/components/Atomics/Wrapped/Wrapped.styles';
 
 export const Wrapped = ({
@@ -13,5 +13,5 @@ export const Wrapped = ({
     <S.Wrapped {...{as}} {...props} bg={bg}>
       {children}
     </S.Wrapped>
-  )
-}
+  );
+};
