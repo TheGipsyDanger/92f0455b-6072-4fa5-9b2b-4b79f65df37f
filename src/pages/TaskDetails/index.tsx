@@ -4,21 +4,19 @@ import {
   ScreenContent,
   Header,
   ScreenWithHeader,
-  FormInput,
   Text,
   Spacing,
-  Button,
+  Button
 } from '~/components';
-import {ITaskDetails} from '~/pages/TaskDetails/TaskDetails.types';
 import {useTaskDetails} from '~/pages/TaskDetails/TaskDetails.model';
 import S from '~/pages/TaskDetails/TaskDetails.styles';
 
-export const TaskDetails = (props: ITaskDetails.IView) => {
+export const TaskDetails = () => {
   const {selectedTask} = useTaskDetails();
   return (
     <Div flex={1} bg="white">
       <Header.WithBack label={'Visualizar Tarefa'} />
-      <ScreenWithHeader mt={4} flex={1} testID={`CreateTask`}>
+      <ScreenWithHeader mt={4} flex={1} testID={'CreateTask'}>
         <ScreenContent>
           <Div>
             <Spacing space={2}>

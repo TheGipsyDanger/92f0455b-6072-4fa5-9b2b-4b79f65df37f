@@ -1,6 +1,5 @@
 import * as React from 'react';
-import {Platform} from 'react-native';
-import {IText} from '~/components/Atomics/Text/Text.types';
+import {type IText} from '~/components/Atomics/Text/Text.types';
 import S from '~/components/Atomics/Text/Text.styles';
 
 export const Text = ({

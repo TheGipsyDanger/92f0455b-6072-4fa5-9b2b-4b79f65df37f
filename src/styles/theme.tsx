@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {ThemeProvider as StyledThemeProvider} from 'styled-components';
-import {withChildren} from '~/utils';
-import {metrics} from '../styles/metrics';
+import {type withChildren} from '~/utils';
 import {RFValue} from 'react-native-responsive-fontsize';
 
 export const theme = {
@@ -9,20 +8,20 @@ export const theme = {
     ...[
       0,
       RFValue(4),
-      ...Array.from({length: 8}, (_, index) => RFValue((index + 1) * 8)),
-    ],
+      ...Array.from({length: 8}, (_, index) => RFValue((index + 1) * 8))
+    ]
   ],
   fonts: {
     regular: 'Inter_400Regular',
     light: 'Inter_300Light',
-    bold: 'Inter_700Bold',
+    bold: 'Inter_700Bold'
   },
   fontSizes: {
     big: 20,
     xbig: 16,
     normal: 13,
     small: 9,
-    xsmall: 11,
+    xsmall: 11
   },
   colors: {
     white: 'white',
@@ -40,17 +39,17 @@ export const theme = {
     'grey-clean': '#EEEEEE',
     'grey-clean-200': '#BBBBBB',
     'grey-clean-300': '#3F3F3F',
-    'black-clean': '#111111',
+    'black-clean': '#111111'
   },
   raddi: {
     light: 4,
     medium: 8,
     big: 16,
-    circle: 100,
+    circle: 100
   },
   shadows: {
-    input: '0px 0px 8px rgba(0, 0, 0, 0.15)',
-  },
+    input: '0px 0px 8px rgba(0, 0, 0, 0.15)'
+  }
 };
 
 export type IFont = typeof theme.fonts;

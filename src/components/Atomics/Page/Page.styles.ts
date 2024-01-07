@@ -1,7 +1,7 @@
-import styled from 'styled-components/native';
-import {KeyboardAvoidingView} from 'react-native';
-import {SafeAreaView} from 'react-native-safe-area-context';
-import {color, BackgroundColorProps, backgroundColor} from 'styled-system';
+import styled from 'styled-components/native'
+import { KeyboardAvoidingView } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context'
+import { color, type BackgroundColorProps, backgroundColor } from 'styled-system'
 
 export default {
   SafeAreaStyled: styled(SafeAreaView)<BackgroundColorProps>`
@@ -11,5 +11,5 @@ export default {
   `,
   KeyboardAvoidStyled: styled(KeyboardAvoidingView)`
     flex: 1;
-  `,
-};
+  `
+}

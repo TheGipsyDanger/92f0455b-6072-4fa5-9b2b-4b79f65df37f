@@ -1,5 +1,5 @@
-export type IFilterType = 'all' | 'open';
+export type IFilterType = 'all' | 'open'
 
 export interface IFilter {
-  type: IFilterType;
+  type: IFilterType
 }

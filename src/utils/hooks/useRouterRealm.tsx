@@ -1,5 +1,5 @@
 import realm from '~/configs/realm';
-import {IRouter} from '~/utils';
+import {type IRouter} from '~/utils';
 
 export const useRouterRealm = () => {
   const set = (params: IRouter) => {

@@ -1,26 +1,22 @@
-import * as React from 'react';
 import {useEffect, useState} from 'react';
 import {
   useFonts,
   Inter_400Regular,
   Inter_300Light,
-  Inter_700Bold,
+  Inter_700Bold
 } from '@expo-google-fonts/inter';
 import realm from '~/configs/realm';
-import {useRequestPermissions} from './useRequestPermissions';
-import {useAppDispatch, usePermissionsRealm} from '~/utils';
+import {useAppDispatch} from '~/utils';
 import {setUser} from '~/redux/actions';
-import {IUser} from '../realm';
-import {useRouterRealm} from './useRouterRealm';
+import {type IUser} from '../realm';
 
 export const useInitalConfigs = () => {
   const dispatch = useAppDispatch();
-  const {set, get} = useRouterRealm();
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  let [fontsLoaded] = useFonts({
+  const [fontsLoaded] = useFonts({
     Inter_400Regular,
     Inter_300Light,
-    Inter_700Bold,
+    Inter_700Bold
   });
 
   const loadAndSaveInfos = () => {
@@ -36,6 +32,6 @@ export const useInitalConfigs = () => {
   }, [fontsLoaded]);
 
   return {
-    isLoading,
+    isLoading
   };
 };

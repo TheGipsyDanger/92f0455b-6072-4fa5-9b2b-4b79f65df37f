@@ -1,4 +1,4 @@
-const React = require('react-native');
+import * as React from 'react-native';
 const {PixelRatio, Dimensions} = React;
 
 const pixelRatio = PixelRatio.get();

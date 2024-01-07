@@ -1,4 +1,4 @@
-import {AppRoutes, RootParamList} from '~/routes/routeConfig';
+import {AppRoutes, type RootParamList} from '~/routes/routeConfig';
 import {useRouterRealm} from './useRouterRealm';
 
 type IUseDefineInitalRoute = keyof RootParamList;

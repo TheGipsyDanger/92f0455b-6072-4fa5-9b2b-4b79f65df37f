@@ -1,6 +1,6 @@
-import * as React from 'react';
-import S from '~/components/Atomics/Input/Input.styles';
-import {IInput} from '~/components/Atomics/Input/Input.types';
+import * as React from 'react'
+import S from '~/components/Atomics/Input/Input.styles'
+import { type IInput } from '~/components/Atomics/Input/Input.types'
 
 export const Input = ({
   type,
@@ -37,4 +37,4 @@ export const Input = ({
     secureTextEntry={type === 'password'}
     opacity={disabled ? 0.5 : 1}
   />
-);
+)

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Div, Spacing, Text, Icon, Conditional} from '../Atomics';
-import {ITaskItem} from './TaskItem.types';
+import {type ITaskItem} from './TaskItem.types';
 import {useTaskItem} from './TaskItem.model';
 import S from './TaskItem.styles';
 
@@ -17,7 +17,7 @@ export const TaskItem = ({
     <S.Container
       ref={ref}
       rightButtons={[
-        <Div>
+        <Div key={'item1'}>
           <Conditional render={status === 'done'}>
             <Div onPress={pressChange}>
               <Div height="100%" center width={75}>
@@ -31,7 +31,7 @@ export const TaskItem = ({
             </Div>
           </Conditional>
         </Div>,
-        <Div onPress={pressDelete}>
+        <Div key={'item2'} onPress={pressDelete}>
           <Div height="100%" center width={75}>
             <Icon
               lib="MaterialCommunityIcons"
@@ -40,10 +40,10 @@ export const TaskItem = ({
               color="red"
             />
           </Div>
-        </Div>,
+        </Div>
       ]}
     >
-      <Div {...rest} testID={`TaskItem`} onPress={goToTaskDetails}>
+      <Div {...rest} testID={'TaskItem'} onPress={goToTaskDetails}>
         <S.Content>
           <Div flexDirection="row">
             <S.Status status={status} />

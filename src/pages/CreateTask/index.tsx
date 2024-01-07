@@ -6,9 +6,9 @@ import {
   Button,
   ScreenContent,
   Header,
-  ScreenWithHeader,
+  ScreenWithHeader
 } from '~/components';
-import {ICreateTask} from '~/pages/CreateTask/CreateTask.types';
+import {type ICreateTask} from '~/pages/CreateTask/CreateTask.types';
 import {useCreateTask} from '~/pages/CreateTask/CreateTask.model';
 import S from '~/pages/CreateTask/CreateTask.styles';
 import {Controller} from 'react-hook-form';
@@ -20,7 +20,7 @@ export const CreateTask = (props: ICreateTask.IView) => {
   return (
     <Div flex={1} bg="white">
       <Header.WithBack label={'Criar Tarefa'} />
-      <ScreenWithHeader mt={4} flex={1} testID={`CreateTask`}>
+      <ScreenWithHeader mt={4} flex={1} testID={'CreateTask'}>
         <ScreenContent>
           <Div>
             <Spacing space={2}>
@@ -62,7 +62,9 @@ export const CreateTask = (props: ICreateTask.IView) => {
                   defaultValue=""
                   render={({field: {onChange, onBlur, value, name}}) => (
                     <Button.Centralize
-                      onPress={() => onChange('file:///renanzin')}
+                      onPress={() => {
+                        onChange('file:///renanzin');
+                      }}
                       variant="outline"
                       label="adicionar arquivo"
                       isLoading={false}
@@ -85,7 +87,9 @@ export const CreateTask = (props: ICreateTask.IView) => {
                       >
                         <Div flex={1} mr={1}>
                           <Button.Default
-                            onPress={() => onChange('open')}
+                            onPress={() => {
+                              onChange('open');
+                            }}
                             variant={value !== 'done' ? 'primary' : 'outline'}
                             label="fazer"
                             isLoading={false}
@@ -93,7 +97,9 @@ export const CreateTask = (props: ICreateTask.IView) => {
                         </Div>
                         <Div flex={1} ml={1}>
                           <Button.Default
-                            onPress={() => onChange('done')}
+                            onPress={() => {
+                              onChange('done');
+                            }}
                             variant={value === 'done' ? 'primary' : 'outline'}
                             label="feito"
                             isLoading={false}

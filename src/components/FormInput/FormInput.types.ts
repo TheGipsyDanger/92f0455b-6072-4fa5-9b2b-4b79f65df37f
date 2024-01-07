@@ -1,27 +1,25 @@
-import {TextInputProps} from 'react-native';
+import {type TextInputProps} from 'react-native';
 
 import {
-  IWrappedSystem,
-  ITriggerFormInput,
-  IFormErrosAccepeted,
-  IFormInputNameAccepeted,
+  type IWrappedSystem,
+  type ITriggerFormInput,
+  type IFormErrosAccepeted,
+  type IFormInputNameAccepeted
 } from '~/utils';
 
 export namespace IFormInput {
   export interface IView
     extends TextInputProps,
-      Omit<IWrappedSystem, 'textAlign' | 'children' | 'verticalAlign'> {
-    errors: IFormErrosAccepeted;
-    name: IFormInputNameAccepeted;
-    trigger: ITriggerFormInput;
-    onChange: (...event: any[]) => void;
-    value: string;
-    placeholder: string;
-    autoFocus?: boolean;
-    label?: JSX.Element;
-    prepend?: JSX.Element;
-    append?: JSX.Element;
+    Omit<IWrappedSystem, 'textAlign' | 'children' | 'verticalAlign'> {
+    errors: IFormErrosAccepeted
+    name: IFormInputNameAccepeted
+    trigger: ITriggerFormInput
+    onChange: (...event: any[]) => void
+    value: string
+    placeholder: string
+    autoFocus?: boolean
+    label?: JSX.Element
+    prepend?: JSX.Element
+    append?: JSX.Element
   }
-  export interface IModelProps {}
-  export interface IModel {}
 }
