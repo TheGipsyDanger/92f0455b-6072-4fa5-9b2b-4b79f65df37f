@@ -11,7 +11,9 @@ export const useRequestPermissions = () => {
 
   const actionToGoSettings = () => {
     goBack();
-    Linking.openSettings();
+    void (async () => {
+      await Linking.openSettings();
+    })();
   };
 
   const goToSettigs = () => {
@@ -22,9 +24,9 @@ export const useRequestPermissions = () => {
         {
           text: 'cancelar',
           onPress: () => {},
-          style: 'cancel',
+          style: 'cancel'
         },
-        {text: 'ir para permissões', onPress: actionToGoSettings},
+        {text: 'ir para permissões', onPress: actionToGoSettings}
       ]
     );
   };
@@ -35,9 +37,9 @@ export const useRequestPermissions = () => {
       create({
         requested: 'true',
         granted: String(resp.granted),
-        status: resp.status,
+        status: resp.status
       });
-      return resp as MediaLibrary.PermissionResponse;
+      return resp;
     } catch {}
   };
   return {requestPermission, goToSettigs, permissions: permissionResponse};

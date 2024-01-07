@@ -6,17 +6,16 @@ import {
   Screen,
   Spacing,
   Button,
-  ScreenContent,
+  ScreenContent
 } from '~/components';
-import {IWelcome} from '~/pages/Welcome/Welcome.types';
 import {useWelcome} from '~/pages/Welcome/Welcome.model';
 import {Controller} from 'react-hook-form';
 
-export const Welcome = (_props: IWelcome.IView) => {
+export const Welcome = () => {
   const {control, trigger, errors, isValid, onSubmit, handleSubmit, isLoading} =
     useWelcome();
   return (
-    <Screen flex={1} testID={`Welcome`}>
+    <Screen flex={1} testID={'Welcome'}>
       <ScreenContent mt={4}>
         <Div>
           <Spacing space={2}>

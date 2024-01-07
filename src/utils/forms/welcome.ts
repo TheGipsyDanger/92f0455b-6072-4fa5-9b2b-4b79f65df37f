@@ -1,4 +1,4 @@
-import {ISchema, IWelcomeForm} from '~/utils/interfaces';
+import {type ISchema, type IWelcomeForm} from '~/utils/interfaces';
 import * as yup from 'yup';
 
 const exec = (): ISchema<IWelcomeForm<string>, IWelcomeForm<any>> => {
@@ -7,7 +7,7 @@ const exec = (): ISchema<IWelcomeForm<string>, IWelcomeForm<any>> => {
       .string()
       .trim()
       .required('Campo obrigatório')
-      .min(4, 'Nome muito curto'),
+      .min(4, 'Nome muito curto')
   });
 };
 

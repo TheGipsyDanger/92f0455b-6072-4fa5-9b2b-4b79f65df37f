@@ -1,20 +1,20 @@
-import {NavigationProp, RouteProp} from '@react-navigation/native';
+import {type NavigationProp, type RouteProp} from '@react-navigation/native';
 
 export enum AppRoutes {
   Welcome = 'Welcome',
   Main = 'Main',
   CreateTask = 'CreateTask',
   RequestPermissions = 'RequestPermissions',
-  TaskDetails = 'TaskDetails',
+  TaskDetails = 'TaskDetails'
 }
 
-export type RootParamList = {
+export interface RootParamList {
   [AppRoutes.Main]: undefined;
   [AppRoutes.Welcome]: undefined;
   [AppRoutes.CreateTask]: undefined;
   [AppRoutes.RequestPermissions]: undefined;
   [AppRoutes.TaskDetails]: undefined;
-};
+}
 
 export const AppRouteNames = Object.keys(
   AppRoutes

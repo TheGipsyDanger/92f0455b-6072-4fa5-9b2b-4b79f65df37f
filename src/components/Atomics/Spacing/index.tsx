@@ -3,7 +3,7 @@ import {Children} from 'react';
 
 import {Wrapped} from '~/components/Atomics/Wrapped';
 
-import ISpacing from './data';
+import type ISpacing from './data';
 
 export const Spacing = ({children, space}: ISpacing) => {
   const childrens = Children.toArray(children);

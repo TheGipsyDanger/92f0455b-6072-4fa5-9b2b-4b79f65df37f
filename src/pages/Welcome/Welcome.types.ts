@@ -1,13 +1,11 @@
 import {
-  IControl,
-  ITrigger,
-  IHandlerSubmit,
-  IFormErros,
-  IWelcomeForm,
+  type IControl,
+  type ITrigger,
+  type IHandlerSubmit,
+  type IFormErros,
+  type IWelcomeForm
 } from '~/utils';
 export namespace IWelcome {
-  export interface IView {}
-  export interface IModelProps {}
   export interface IModel {
     control: IControl<IWelcomeForm<string>>;
     trigger: ITrigger<IWelcomeForm<string>>;

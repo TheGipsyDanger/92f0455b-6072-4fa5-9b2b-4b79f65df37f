@@ -5,15 +5,15 @@ import {useDefineInitalRoute} from '~/utils';
 
 const Stack = createStackNavigator();
 
-const allViews: {[key: string]: any} = {
-  ...views,
+const allViews: Record<string, any> = {
+  ...views
 };
 
 function defineRoutesProps(name: string) {
   return {
     name,
     options: {headerShown: false},
-    component: allViews[name],
+    component: allViews[name]
   };
 }
 

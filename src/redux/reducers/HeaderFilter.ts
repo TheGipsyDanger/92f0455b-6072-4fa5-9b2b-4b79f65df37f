@@ -1,12 +1,12 @@
-import {createSlice, PayloadAction} from '@reduxjs/toolkit';
-import {IFilterType} from '~/utils';
+import {createSlice, type PayloadAction} from '@reduxjs/toolkit';
+import {type IFilterType} from '~/utils';
 
 interface IHeaderFilterState {
   type: IFilterType;
 }
 
 const initialState: IHeaderFilterState = {
-  type: 'all',
+  type: 'all'
 };
 
 const HeaderFilter = createSlice({
@@ -15,8 +15,8 @@ const HeaderFilter = createSlice({
   reducers: {
     changeFilter: (state, action: PayloadAction<{type: IFilterType}>) => {
       return {...state, type: action.payload.type};
-    },
-  },
+    }
+  }
 });
 
 export default HeaderFilter.reducer;

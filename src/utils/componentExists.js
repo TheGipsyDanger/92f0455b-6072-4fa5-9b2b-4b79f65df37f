@@ -67,5 +67,5 @@ module.exports = {
   hooksExists,
   factoryExists,
   reduxExists,
-  interfaceExists,
+  interfaceExists
 };

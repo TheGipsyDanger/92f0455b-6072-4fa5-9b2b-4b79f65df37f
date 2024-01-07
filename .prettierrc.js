@@ -5,6 +5,6 @@ module.exports = {
   jsxBracketSameLine: false,
   bracketSameLine: false,
   arrowParens: 'avoid',
-  trailingComma: 'es5',
+  trailingComma: 'none',
   bracketSpacing: false,
 };

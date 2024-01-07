@@ -1,8 +1,7 @@
 import {all, put, takeLatest, delay} from 'redux-saga/effects';
 import {userActions} from '~/redux/actions';
-import {} from '~/utils';
+import {navigate} from '~/utils';
 import {AppRoutes} from '~/routes/routeConfig';
-import {navigate, useUserRealm} from '~/utils';
 
 function* createUser(params: ReturnType<typeof userActions.request>) {
   try {
@@ -11,7 +10,7 @@ function* createUser(params: ReturnType<typeof userActions.request>) {
     yield delay(1000);
     navigate(AppRoutes.RequestPermissions);
   } catch (error) {
-    yield put(userActions.failure(`${error}`));
+    yield put(userActions.failure(`${String(error)}`));
   }
 }
 

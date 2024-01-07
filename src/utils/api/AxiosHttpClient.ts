@@ -1,6 +1,10 @@
-import {HttpRequest, HttpResponse, HttpClient} from '~/utils/api';
+import {
+  type HttpRequest,
+  type HttpResponse,
+  type HttpClient
+} from '~/utils/api';
 
-import axios, {AxiosResponse} from 'axios';
+import axios, {type AxiosResponse} from 'axios';
 
 export class AxiosHttpClientDefault implements HttpClient {
   async request(data: HttpRequest): Promise<HttpResponse> {
@@ -10,7 +14,7 @@ export class AxiosHttpClientDefault implements HttpClient {
         url: data.url,
         method: data.method,
         data: data.body,
-        headers: data.headers,
+        headers: data.headers
       });
     } catch (error: any) {
       axiosResponse = error.response;
@@ -18,7 +22,7 @@ export class AxiosHttpClientDefault implements HttpClient {
     return {
       statusCode: axiosResponse.status,
       data: axiosResponse.data,
-      message: '',
+      message: ''
     };
   }
 }

@@ -1,29 +1,26 @@
-import {ICreateTask} from '~/pages/CreateTask/CreateTask.types';
+import {type ICreateTask} from '~/pages/CreateTask/CreateTask.types';
 import {yupResolver} from '@hookform/resolvers/yup';
 import {
-  ICreateTaskForm,
-  ITask,
-  navigate,
-  useAppDispatch,
+  type ICreateTaskForm,
+  type ITask,
   useAppSelector,
-  useTaskState,
+  useTaskState
 } from '~/utils';
 import {useForm} from 'react-hook-form';
 import {createTaskSchema} from '~/utils/forms';
 import uuid from 'react-native-uuid';
 
-export const useCreateTask = (
-  props: ICreateTask.IModelProps
-): ICreateTask.IModel => {
+export const useCreateTask = (): ICreateTask.IModel => {
   const isLoading = useAppSelector(state => state.Tasks.createLoading);
   const {create} = useTaskState();
+
   const {
     control,
     trigger,
     handleSubmit,
-    formState: {errors, isValid},
+    formState: {errors, isValid}
   } = useForm({
-    resolver: yupResolver(createTaskSchema),
+    resolver: yupResolver(createTaskSchema)
   });
 
   const onSubmit = (params: ICreateTaskForm<string>) => {
@@ -37,6 +34,6 @@ export const useCreateTask = (
     errors,
     trigger,
     isValid,
-    isLoading,
+    isLoading
   };
 };

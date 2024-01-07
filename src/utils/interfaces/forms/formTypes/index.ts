@@ -1,14 +1,14 @@
 import {
-  Control,
-  FieldErrors,
-  UseFormTrigger,
-  UseFormHandleSubmit,
-  FieldValues,
+  type Control,
+  type FieldErrors,
+  type UseFormTrigger,
+  type UseFormHandleSubmit,
+  type FieldValues
 } from 'react-hook-form';
 
-import {IWelcomeForm, ICreateTaskForm} from '../formSchema';
+import {type IWelcomeForm, type ICreateTaskForm} from '../formSchema';
 
-import * as yup from 'yup';
+import type * as yup from 'yup';
 
 export type IControl<T extends FieldValues> = Control<T, any>;
 export type ITrigger<T extends FieldValues> = UseFormTrigger<T>;

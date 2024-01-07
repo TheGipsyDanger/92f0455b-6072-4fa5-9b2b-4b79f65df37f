@@ -1,4 +1,4 @@
-import {IWrappedSystem} from '~/utils';
+import {type IWrappedSystem} from '~/utils';
 
 type IButtonVariants = 'primary' | 'disable' | 'link' | 'outline';
 
@@ -11,6 +11,4 @@ export namespace IButton {
   export interface IViewAction extends IWrappedSystem {
     variant: IButtonVariants;
   }
-  export interface IModelProps {}
-  export interface IModel {}
 }

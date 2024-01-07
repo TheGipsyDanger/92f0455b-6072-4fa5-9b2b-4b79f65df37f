@@ -3,7 +3,7 @@ import {
   deleteTaskActions,
   changeStatusTaskActions,
   selectTaskActions,
-  createTaskActions,
+  createTaskActions
 } from '~/redux/actions';
 import {AppRoutes} from '~/routes/routeConfig';
 import {navigate, goBack} from '~/utils';
@@ -12,7 +12,7 @@ function* deleteTask(params: ReturnType<typeof deleteTaskActions.request>) {
   try {
     yield put(deleteTaskActions.success(params.payload));
   } catch (error) {
-    yield put(deleteTaskActions.failure(`${error}`));
+    yield put(deleteTaskActions.failure(`${String(error)}`));
   }
 }
 
@@ -22,7 +22,7 @@ function* changeStatusTask(
   try {
     yield put(changeStatusTaskActions.success(params.payload));
   } catch (error) {
-    yield put(changeStatusTaskActions.failure(`${error}`));
+    yield put(changeStatusTaskActions.failure(`${String(error)}`));
   }
 }
 
@@ -31,7 +31,7 @@ function* selectTask(params: ReturnType<typeof selectTaskActions.request>) {
     yield put(selectTaskActions.success(params.payload));
     navigate(AppRoutes.TaskDetails);
   } catch (error) {
-    yield put(selectTaskActions.failure(`${error}`));
+    yield put(selectTaskActions.failure(`${String(error)}`));
   }
 }
 
@@ -42,7 +42,7 @@ function* createTask(params: ReturnType<typeof createTaskActions.request>) {
     yield put(createTaskActions.success(params.payload));
     goBack();
   } catch (error) {
-    yield put(createTaskActions.failure(`${error}`));
+    yield put(createTaskActions.failure(`${String(error)}`));
   }
 }
 

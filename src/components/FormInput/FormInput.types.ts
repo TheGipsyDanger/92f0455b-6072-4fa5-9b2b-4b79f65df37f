@@ -1,10 +1,10 @@
-import {TextInputProps} from 'react-native';
+import {type TextInputProps} from 'react-native';
 
 import {
-  IWrappedSystem,
-  ITriggerFormInput,
-  IFormErrosAccepeted,
-  IFormInputNameAccepeted,
+  type IWrappedSystem,
+  type ITriggerFormInput,
+  type IFormErrosAccepeted,
+  type IFormInputNameAccepeted
 } from '~/utils';
 
 export namespace IFormInput {
@@ -22,6 +22,4 @@ export namespace IFormInput {
     prepend?: JSX.Element;
     append?: JSX.Element;
   }
-  export interface IModelProps {}
-  export interface IModel {}
 }

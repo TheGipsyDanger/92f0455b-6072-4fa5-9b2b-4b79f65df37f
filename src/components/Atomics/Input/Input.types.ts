@@ -1,17 +1,17 @@
-import {withChildren} from '~/utils';
-import {IFont, IFontSizes} from '~/styles/theme';
-import {TextInput} from 'react-native';
+import {type withChildren} from '~/utils';
+import {type IFont, type IFontSizes} from '~/styles/theme';
+import {type TextInput} from 'react-native';
 
 import {
-  SpaceProps,
-  ColorProps,
-  BorderProps,
-  BoxShadowProps,
-  FontSizeProps,
-  FontStyleProps,
-  TypographyProps,
-  FontFamilyProps,
-  FontWeightProps,
+  type SpaceProps,
+  type ColorProps,
+  type BorderProps,
+  type BoxShadowProps,
+  type FontSizeProps,
+  type FontStyleProps,
+  type TypographyProps,
+  type FontFamilyProps,
+  type FontWeightProps
 } from 'styled-system';
 
 export namespace IInput {
@@ -43,6 +43,4 @@ export namespace IInput {
     type: string;
     value: string;
   }
-  export interface IModelProps {}
-  export interface IModel {}
 }

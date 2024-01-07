@@ -1,6 +1,6 @@
-import Swipeable from 'react-native-swipeable';
+import type Swipeable from 'react-native-swipeable';
 import {useRef} from 'react';
-import {ITaskItem} from '~/components/TaskItem/TaskItem.types';
+import {type ITaskItem} from '~/components/TaskItem/TaskItem.types';
 import {useTaskState} from '~/utils';
 
 export const useTaskItem = ({id}: {id: string}): ITaskItem.IModel => {
@@ -29,6 +29,6 @@ export const useTaskItem = ({id}: {id: string}): ITaskItem.IModel => {
     ref,
     pressChange,
     pressDelete,
-    goToTaskDetails,
+    goToTaskDetails
   };
 };

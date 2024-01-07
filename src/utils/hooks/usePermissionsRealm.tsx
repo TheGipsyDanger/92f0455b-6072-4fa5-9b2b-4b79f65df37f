@@ -1,6 +1,6 @@
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 import realm from '~/configs/realm';
-import {IPermissions} from '~/utils';
+import {type IPermissions} from '~/utils';
 
 export const usePermissionsRealm = () => {
   const [permissions, setPermissions] = useState<IPermissions>(
@@ -26,5 +26,5 @@ export const usePermissionsRealm = () => {
     });
   };
 
-  return {create, get, clean};
+  return {permissions, create, get, clean};
 };

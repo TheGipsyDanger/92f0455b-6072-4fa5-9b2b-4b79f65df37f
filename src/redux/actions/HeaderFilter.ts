@@ -1,9 +1,9 @@
 import {createCustomAction} from 'typesafe-actions';
-import {IFilterType} from '~/utils';
+import {type IFilterType} from '~/utils';
 
 export const changeFilter = createCustomAction(
   'HeaderFilter/changeFilter',
   (type: IFilterType) => ({
-    payload: {type},
+    payload: {type}
   })
 );

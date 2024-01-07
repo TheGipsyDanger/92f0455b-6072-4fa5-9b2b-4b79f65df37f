@@ -1,4 +1,4 @@
-import {IColors} from '~/styles/theme';
+import {type IColors} from '~/styles/theme';
 
 export namespace IIcon {
   export interface IView {
@@ -7,6 +7,6 @@ export namespace IIcon {
     size?: number;
     color: keyof IColors;
     name: string;
-    onPress?(): void;
+    onPress?: () => void;
   }
 }

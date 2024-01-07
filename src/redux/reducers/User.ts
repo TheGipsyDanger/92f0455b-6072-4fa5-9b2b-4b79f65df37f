@@ -1,5 +1,5 @@
-import {createSlice, PayloadAction} from '@reduxjs/toolkit';
-import {IUser} from '~/utils';
+import {createSlice, type PayloadAction} from '@reduxjs/toolkit';
+import {type IUser} from '~/utils';
 
 interface IUserState {
   user: IUser;
@@ -8,7 +8,7 @@ interface IUserState {
 
 const initialState: IUserState = {
   user: {} as IUser,
-  isLoading: false,
+  isLoading: false
 };
 
 const User = createSlice({
@@ -26,8 +26,8 @@ const User = createSlice({
     },
     createUserFailure: state => {
       return {...state, isLoading: false};
-    },
-  },
+    }
+  }
 });
 
 export default User.reducer;

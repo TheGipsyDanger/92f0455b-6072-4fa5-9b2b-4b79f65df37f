@@ -1,5 +1,5 @@
 import {createAsyncAction} from 'typesafe-actions';
-import {ITask} from '~/utils';
+import {type ITask} from '~/utils';
 
 interface IIDRequest extends Pick<ITask, 'id'> {}
 

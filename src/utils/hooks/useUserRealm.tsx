@@ -1,10 +1,7 @@
-import {useState, useEffect} from 'react';
 import realm from '~/configs/realm';
-import {IUser} from '~/utils';
+import {type IUser} from '~/utils';
 
 export const useUserRealm = () => {
-  const [user, setUser] = useState<IUser>({} as IUser);
-
   const create = (params: IUser) => {
     realm.write(() => {
       realm.create('User', params);

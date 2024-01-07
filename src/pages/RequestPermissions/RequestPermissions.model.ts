@@ -1,9 +1,9 @@
-import {IRequestPermissions} from '~/pages/RequestPermissions/RequestPermissions.types';
+import {type IRequestPermissions} from '~/pages/RequestPermissions/RequestPermissions.types';
 import {AppRoutes} from '~/routes/routeConfig';
 import {
   navigate,
   useRouterRealm,
-  useRequestPermissions as Permissions,
+  useRequestPermissions as Permissions
 } from '~/utils';
 
 export const useRequestPermissions = (): IRequestPermissions.IModel => {
@@ -20,13 +20,15 @@ export const useRequestPermissions = (): IRequestPermissions.IModel => {
 
   const requestAction = async () => {
     const resp = await requestPermission();
-    resp?.granted && goToMain();
+    if (resp?.granted === true) {
+      goToMain();
+    }
   };
 
   return {
     goToMain,
     requestAction,
     isFirstTime,
-    goToSettigs,
+    goToSettigs
   };
 };

@@ -5,5 +5,5 @@ import {Action} from './Action';
 export const Button = {
   Default: DFBTN,
   Centralize,
-  Action,
+  Action
 };

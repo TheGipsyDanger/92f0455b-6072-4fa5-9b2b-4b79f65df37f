@@ -1,12 +1,11 @@
 import * as React from 'react';
 import * as ICON from '@expo/vector-icons';
-import {IIcon} from '~/components/Atomics/Icon/Icon.types';
+import {type IIcon} from '~/components/Atomics/Icon/Icon.types';
 import {Wrapped} from '~/components/Atomics/Wrapped';
-import {theme, IColors} from '~/styles/theme';
+import {theme, type IColors} from '~/styles/theme';
 
 const Main = ({lib, ...props}: IIcon.IView) => {
-  // @ts-ignore
-  const Icon = ICON[lib];
+  const Icon = ICON[lib as keyof typeof ICON];
   return <Icon {...props} />;
 };
 

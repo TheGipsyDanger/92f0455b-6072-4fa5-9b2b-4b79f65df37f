@@ -1,26 +1,15 @@
-import {useRef} from 'react';
-import {IInput} from '~/components/Atomics/Input/Input.types';
-import {mask as masker, unMask} from 'remask';
-import {TextInput} from 'react-native';
+import {type IInput} from '~/components/Atomics/Input/Input.types';
 
 export const useInput = (props: IInput.IView): IInput.IModel => {
-  const textInputRef = useRef<TextInput>();
+  const {value, onChangeText} = props;
 
-  var ref = {};
+  const handleValue = value;
 
-  const {mask, value, onChangeText} = props;
-
-  const handleValue = mask ? masker(value || '', mask) : value;
-
-  const handleChange = (value: string) =>
-    onChangeText &&
-    onChangeText(mask ? unMask(masker(value, mask), mask) : value);
+  const handleChange = (value: string) => onChangeText?.(value);
 
   return {
     ...props,
-    //@ts-ignore
-    forwardRef: ref[props.label],
     handleValue,
-    handleChange,
+    handleChange
   };
 };

@@ -3,7 +3,7 @@ import {View, TextInput, Button} from 'react-native';
 import {render, fireEvent} from '@testing-library/react-native';
 
 interface IComponentDeTest {
-  press(email: string, password: string): void;
+  press: (email: string, password: string) => void;
 }
 
 const ComponentDeTest: React.FC<IComponentDeTest> = ({press}) => {
@@ -11,22 +11,24 @@ const ComponentDeTest: React.FC<IComponentDeTest> = ({press}) => {
   const [password, setPassword] = useState('');
 
   return (
-    <View testID={`ComponentDeTest`}>
+    <View testID={'ComponentDeTest'}>
       <TextInput
-        testID={`email`}
+        testID={'email'}
         value={email}
         onChangeText={setEmail}
         placeholder={'Email'}
       />
       <TextInput
-        testID={`password`}
+        testID={'password'}
         value={password}
         onChangeText={setPassword}
         placeholder={'Password'}
       />
       <Button
-        testID={`button`}
-        onPress={() => press(email, password)}
+        testID={'button'}
+        onPress={() => {
+          press(email, password);
+        }}
         title={'Botão'}
       />
     </View>
@@ -41,7 +43,7 @@ const ComponentDeTest: React.FC<IComponentDeTest> = ({press}) => {
 // Exemplo de mock de library
 jest.mock('@react-navigation/native', () => {
   return {
-    useNavigation: jest.fn(),
+    useNavigation: jest.fn()
   };
 });
 
@@ -52,7 +54,7 @@ const exemploDeFn = jest.fn();
 describe('Render ComponentDeTest', () => {
   it('Should be ComponentDeTest exist', () => {
     const {getByTestId} = render(<ComponentDeTest press={exemploDeFn} />);
-    const currentElement = getByTestId(`ComponentDeTest`);
+    const currentElement = getByTestId('ComponentDeTest');
     expect(currentElement).toBeTruthy();
   });
 });
@@ -62,9 +64,9 @@ describe('ComponentDeTest ', () => {
   it('Should be ComponentDeTest is functional', () => {
     // capturando elementos
     const {getByTestId} = render(<ComponentDeTest press={exemploDeFn} />);
-    const emailInput = getByTestId(`email`);
-    const passwordInput = getByTestId(`password`);
-    const buttonElement = getByTestId(`button`);
+    const emailInput = getByTestId('email');
+    const passwordInput = getByTestId('password');
+    const buttonElement = getByTestId('button');
     // checkando se os elementos estão na tela
     expect(emailInput).toBeTruthy();
     expect(passwordInput).toBeTruthy();

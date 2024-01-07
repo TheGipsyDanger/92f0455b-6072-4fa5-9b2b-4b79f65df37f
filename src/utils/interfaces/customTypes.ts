@@ -1,28 +1,37 @@
 import {
-  BorderProps,
-  BoxShadowProps,
-  ColorProps,
-  FlexboxProps,
-  SpaceProps,
-  TypographyProps,
-  BackgroundColorProps,
-  LayoutProps,
-  BorderColorProps,
-  FontSizeProps,
-  FontFamilyProps,
-  FontWeightProps,
-  FontStyleProps,
-  ResponsiveValue,
-  PositionProps,
+  type BorderProps,
+  type BoxShadowProps,
+  type ColorProps,
+  type FlexboxProps,
+  type SpaceProps,
+  type TypographyProps,
+  type BackgroundColorProps,
+  type LayoutProps,
+  type BorderColorProps,
+  type FontSizeProps,
+  type FontFamilyProps,
+  type FontWeightProps,
+  type FontStyleProps,
+  type ResponsiveValue,
+  type PositionProps
 } from 'styled-system';
-import {IFont, IFontSizes, IColors, IRadius} from '~/styles/theme';
+import {
+  type IFont,
+  type IFontSizes,
+  type IColors,
+  type IRadius
+} from '~/styles/theme';
 
+// eslint-disable-next-line @typescript-eslint/ban-types
 export type withChildren<T = {}> = T & {children?: React.ReactNode};
-export type StringToNumberMapcd = {[key: string]: number};
-export type IModalType = {[key: string]: JSX.Element};
-export type IInsets = {top: number; bottom: number};
-export type IStringMap = {[key: string]: string};
-export type StringToNumberMap = {[key: string]: number};
+export type StringToNumberMapcd = Record<string, number>;
+export type IModalType = Record<string, JSX.Element>;
+export interface IInsets {
+  top: number;
+  bottom: number;
+}
+export type IStringMap = Record<string, string>;
+export type StringToNumberMap = Record<string, number>;
 
 export interface IWrappedSystem
   extends BorderProps,
@@ -39,7 +48,7 @@ export interface IWrappedSystem
   radius?: keyof IRadius;
   testID?: string;
   center?: boolean;
-  onPress?(): void;
+  onPress?: () => void;
   bg?: ResponsiveValue<keyof IColors>;
   activeOpacity?: number;
 }

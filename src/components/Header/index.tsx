@@ -3,5 +3,5 @@ import {WithBack} from './WithBack';
 
 export const Header = {
   Home,
-  WithBack,
+  WithBack
 };

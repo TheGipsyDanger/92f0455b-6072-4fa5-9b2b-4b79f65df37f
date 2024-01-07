@@ -1,22 +1,12 @@
 import * as React from 'react';
 import {useCallback} from 'react';
-import {FlatList, ListRenderItem} from 'react-native';
-import {Div, Button, TaskItem, Text} from '~/components';
-import {IMain} from '~/pages/Main/Main.types';
+import {FlatList, type ListRenderItem} from 'react-native';
+import {Div, Button, TaskItem, Text, Header} from '~/components';
 import {useMain} from '~/pages/Main/Main.model';
-import {Header} from '~/components';
-import {ITask} from '~/utils';
+import {type ITask} from '~/utils';
 import {theme} from '~/styles/theme';
 
-const Empty = () => (
-  <Div mt={4}>
-    <Text font="bold" textAlign="center">
-      Sem tarefas por enquanto
-    </Text>
-  </Div>
-);
-
-export const Main = (props: IMain.IView) => {
+export const Main = () => {
   const {goToCreateTask, tasks, type} = useMain();
 
   const renderItem: ListRenderItem<ITask> = ({item, index}) => {
@@ -46,7 +36,7 @@ export const Main = (props: IMain.IView) => {
           )}
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{
-            paddingBottom: theme.space[6],
+            paddingBottom: theme.space[6]
           }}
           data={tasks}
           extraData={tasks}

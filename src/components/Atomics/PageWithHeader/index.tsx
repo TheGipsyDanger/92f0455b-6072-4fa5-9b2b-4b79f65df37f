@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Platform, ScrollView} from 'react-native';
 import {Wrapped} from '~/components/Atomics/Wrapped';
-import {IPage} from '~/components/Atomics/Page/Page.types';
+import {type IPage} from '~/components/Atomics/Page/Page.types';
 import S from '~/components/Atomics/Page/Page.styles';
 
 export const PageWithHeader = ({

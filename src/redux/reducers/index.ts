@@ -6,6 +6,6 @@ import Tasks from './Tasks';
 export const reducers = {
   HeaderFilter,
   User,
-  Tasks,
+  Tasks
   // use redux here
 };

@@ -5,9 +5,9 @@ import normalize from '../utils/sizeHelper';
 const {height, width} = Dimensions.get('window');
 
 export const metrics = {
-  height: height,
-  width: width,
+  height,
+  width,
   defaultSpace: (multiplier = 1) => normalize(8 * multiplier),
   header: isIphoneX() ? 44 + getStatusBarHeight() : 44,
-  normalize: normalize,
+  normalize
 };

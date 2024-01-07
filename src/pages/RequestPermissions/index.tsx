@@ -1,13 +1,13 @@
 import * as React from 'react';
 import {Button, Div, Screen, ScreenContent, Spacing, Text} from '~/components';
-import {IRequestPermissions} from '~/pages/RequestPermissions/RequestPermissions.types';
+import {type IRequestPermissions} from '~/pages/RequestPermissions/RequestPermissions.types';
 import {useRequestPermissions} from '~/pages/RequestPermissions/RequestPermissions.model';
 
 export const RequestPermissions = (props: IRequestPermissions.IView) => {
   const {goToMain, requestAction, goToSettigs, isFirstTime} =
     useRequestPermissions();
   return (
-    <Screen flex={1} testID={`Welcome`}>
+    <Screen flex={1} testID={'Welcome'}>
       <ScreenContent mt={4}>
         <Div>
           <Spacing space={4}>
@@ -15,12 +15,14 @@ export const RequestPermissions = (props: IRequestPermissions.IView) => {
               Melhor experiência
             </Text>
             <Text textAlign="center" font="light" size="xbig">
-              {`Para experiência completa, precisamos do acesso a seus arquivos.`}
+              {
+                'Para experiência completa, precisamos do acesso a seus arquivos.'
+              }
             </Text>
             <Div>
               <Spacing space={2}>
-                <Text>{`• Tarefas mais personalizadas.`}</Text>
-                <Text>{`• Tarefas com documentos.`}</Text>
+                <Text>{'• Tarefas mais personalizadas.'}</Text>
+                <Text>{'• Tarefas com documentos.'}</Text>
               </Spacing>
             </Div>
           </Spacing>

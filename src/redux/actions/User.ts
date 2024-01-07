@@ -1,5 +1,5 @@
 import {createAsyncAction, createCustomAction} from 'typesafe-actions';
-import {IUser} from '~/utils';
+import {type IUser} from '~/utils';
 
 export const userActions = createAsyncAction(
   'User/createUser',
@@ -8,5 +8,5 @@ export const userActions = createAsyncAction(
 )<IUser, IUser, string>();
 
 export const setUser = createCustomAction('User/setUser', (user: IUser) => ({
-  payload: {user},
+  payload: {user}
 }));
